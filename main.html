@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Switcher</title>
+    
+    <link rel="stylesheet" href="../style/grid.css">
+    <link rel="stylesheet" href="../style/button.css">
+    <link rel="stylesheet" href="../style/card.css">
+    <link rel="stylesheet" href="../style/drivers.css">
+    <link rel="stylesheet" href="../style/input.css">
+    <link rel="stylesheet" href="../style/form.css">
+    <link rel="stylesheet" href="../style/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background-color: var(--button-bg);
+            color: var(--button-color);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 9999;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--button-hover);
+        }
+
+        .theme-toggle-icon {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="container grid my-3">
+        <h5 class="col-9 mitr-bold" id="animated-text"></h5>
+    </header>
+    <main class="container">
+
+        <div class="grid">
+            <a href="./html/grid.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>grid</h5></div>
+            </a>
+            <a href="./html/accordion.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>accordion</h5></div>
+            </a>
+            <a href="./html/alert.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>alert</h5></div>
+            </a>
+            <a href="./html/badge.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>badge</h5></div>
+            </a>
+            <a href="./html/breadcrumb.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>breadcrumb</h5></div>
+            </a>
+            <a href="./html/button.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>button</h5></div>
+            </a>
+            <a href="./html/card.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>card</h5></div>
+            </a>
+            <a href="./html/carousel.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>carousel</h5></div>
+            </a>
+            <a href="./html/collapse.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>collapse</h5></div>
+            </a>
+            <a href="./html/dropdown.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>dropdown</h5></div>
+            </a>
+            <a href="./html/drivers.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4 border-success"><h5>drivers</h5></div>
+            </a>
+            <a href="./html/form.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>form | input</h5></div>
+            </a>
+            <a href="./html/modal.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>modal</h5></div>
+            </a>
+            <a href="./html/navbar.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>navbar</h5></div>
+            </a>
+            <a href="./html/offcanvas.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>offcanvas</h5></div>
+            </a>
+            <a href="./html/pagination.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>pagination</h5></div>
+            </a>
+            <a href="./html/popover.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>popover</h5></div>
+            </a>
+            <a href="./html/progress.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>progress</h5></div>
+            </a>
+            <a href="./html/scrollspy.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>scrollspy</h5></div>
+            </a>
+            <a href="./html/spinner.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>spinner</h5></div>
+            </a>
+            <a href="./html/toast.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>tooltip</h5></div>
+            </a>
+            <a href="./html/table.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4 border-success"><h5>table</h5></div>
+            </a>
+            
+            <a href="./html/image.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>image</h5></div>
+            </a>
+            <a href="./html/video.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>video</h5></div>
+            </a>
+            <a href="./html/audio.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>audio</h5></div>
+            </a>
+            <a href="./html/chart.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>chart</h5></div>
+            </a>
+            <a href="./html/calendar.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>calendar</h5></div>
+            </a>
+            <a href="./html/editor.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>editor</h5></div>
+            </a>
+            <a href="./html/code.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>code</h5></div>
+            </a>
+            <a href="./html/slider.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>slider</h5></div>
+            </a>
+            <a href="./html/date.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>date</h5></div>
+            </a>
+            <a href="./html/time.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>time</h5></div>
+            </a>
+            <a href="./html/color.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>color</h5></div>
+            </a>
+            <a href="./html/file.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>file</h5></div>
+            </a>
+            <a href="./html/range.html" class="col-6 col-xs-4 col-md-3 col-lg-2">
+                <div class="card px-3 py-4"><h5>range</h5></div>
+            </a>
+
+        </div>
+    </main>
+
+    <button id="theme-toggle" class="theme-toggle">
+        <span class="theme-toggle-icon">🌓</span>
+    </button>
+
+    <script src="js/custom-select.js"></script>
+    <script src="js/frame.js"></script>
+    <script src="js/themes.js"></script>
+    <script src="js/apiv0.js"></script>
+
+    <script>
+        const textElement = document.getElementById('animated-text');
+
+        // Функция для добавления текста с задержкой
+        function addText(text, delay) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    textElement.textContent += text;
+                    resolve();
+                }, delay);
+            });
+        }
+
+        // Функция для удаления последнего символа с задержкой
+        function delText(delay) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    textElement.textContent = textElement.textContent.slice(0, -1);
+                    resolve();
+                }, delay);
+            });
+        }
+
+        // Пример использования
+        async function animateText() {
+            await addText("X", 300); // Добавляем "X" с задержкой 300 мс
+            await addText("Y", 300); // Добавляем "Y" с задержкой 300 мс
+            await addText("I", 300); // Добавляем "I" с задержкой 300 мс
+            await delText(500);      // Удаляем последний символ ("I") с задержкой 100 мс
+            await addText("Z", 300); // Добавляем "Z" с задержкой 300 мс
+            await addText(".", 300); // Добавляем "." с задержкой 300 мс
+            await addText("a", 300); // Добавляем "a" с задержкой 300 мс
+            await addText("p", 300); // Добавляем "p" с задержкой 300 мс
+            await addText("i", 300); // Добавляем "i" с задержкой 300 мс
+        }
+
+        // Запуск анимации
+        animateText();
+    </script>
+</body>
+</html>

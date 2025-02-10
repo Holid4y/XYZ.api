@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Switcher</title>
+    
+    <link rel="stylesheet" href="../style/grid.css">
+    <link rel="stylesheet" href="../style/button.css">
+    <link rel="stylesheet" href="../style/card.css">
+    <link rel="stylesheet" href="../style/drivers.css">
+    <link rel="stylesheet" href="../style/input.css">
+    <link rel="stylesheet" href="../style/form.css">
+    <link rel="stylesheet" href="../style/style.css">
+
+    <style>
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background-color: var(--button-bg);
+            color: var(--button-color);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 9999;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--button-hover);
+        }
+
+        .theme-toggle-icon {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="container grid my-3">
+        <h5 class="col-10">Button</h5>
+        <a href="../main.html" class="col-2">
+            <button class="btn primary w-100">На главную</button>
+        </a> 
+    </header>
+    <main class="container">
+
+        <div>
+            <h1>Default</h1>
+            <button class="btn">Primary</button>
+            <button class="btn primary">Primary</button>
+            <button class="btn secondary">Secondary</button>
+            <button class="btn success">Success</button>
+            <button class="btn danger">Danger</button>
+            <button class="btn warning">Warning</button>
+            <button class="btn info">Info</button>
+            <button class="btn light">Light</button>
+            <button class="btn dark">Dark</button>
+        </div>
+
+        <div class="my-5">
+            <h1>Outline</h1>
+            <button class="btn outline">Outline</button>
+            <button class="btn outline primary">Primary</button>
+            <button class="btn outline secondary">Secondary</button>
+            <button class="btn outline success">Success</button>
+            <button class="btn outline danger">Danger</button>
+            <button class="btn outline warning">Warning</button>
+            <button class="btn outline info">Info</button>
+            <button class="btn outline light">Light</button>
+            <button class="btn outline dark">Dark</button>
+        </div>
+
+        <div>
+            <h1>Disabled</h1>
+            <button class="btn disabled">Disabled</button>
+            <button class="btn primary disabled">Disabled</button>
+            <button class="btn secondary disabled">Disabled</button>
+            <button class="btn success disabled">Disabled</button>
+            <button class="btn danger disabled">Disabled</button>
+            <button class="btn warning disabled">Disabled</button>
+            <button class="btn info disabled">Disabled</button>
+            <button class="btn light disabled">Disabled</button>
+            <button class="btn dark disabled">Disabled</button>
+        </div>
+
+        <div class="my-5">
+            <h1>Size</h1>
+            <button class="btn sm primary">Small button</button>
+            <button class="btn lg primary">Large button</button>
+        </div>
+    </main>
+
+    <button id="theme-toggle" class="theme-toggle">
+        <span class="theme-toggle-icon">🌓</span>
+    </button>
+
+    <script src="../js/custom-select.js"></script>
+    <script src="../js/frame.js"></script>
+    <script src="../js/themes.js"></script>
+    <script src="../js/apiv0.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+/* Основные стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.modal-header, .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.modal-header h2 {
+    margin: 0;
+}
+
+.close-modal{
+    background-color: var(--button-bg);
+    color: var(--button-color);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Размеры модального окна */
+.modal-lg {
+    max-width: 800px;
+}
+
+.modal-md {
+    max-width: 500px;
+}
+
+.modal-sm {
+    max-width: 300px;
+}
+
+/* Позиционирование модального окна */
+.modal-top {
+    align-items: flex-start;
+    padding-top: 20px;
+}
+
+.modal-bottom {
+    align-items: flex-end;
+    padding-bottom: 20px;
+}
+
+/* Эффект размытия фона */
+.modal-blur {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* Эффекты появления */
+.modal.effect-slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+.modal.effect-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal.effect-scale-up {
+    animation: scaleUp 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,93 @@
+.drivers {
+    position: relative;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.drivers.left {
+    justify-content: flex-start;
+}
+
+.drivers.right {
+    justify-content: flex-end;
+}
+
+.drivers::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background-color: var(--border-color, #ddd);
+    z-index: 1;
+}
+
+.drivers::after {
+    content: "";
+    position: absolute;
+    background-color: var(--bg-color, #fff);
+    padding: 0 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-muted, #666);
+    z-index: 2;
+}
+
+/* Позиционирование текста "drivers элемент" */
+.drivers.center::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.drivers.left::after {
+    left: 1rem;
+}
+
+.drivers.right::after {
+    right: 1rem;
+}
+
+/* Стили для содержимого внутри .drivers */
+.drivers > * {
+    position: relative;
+    z-index: 3;
+    background-color: var(--background-color);
+    padding: 0 0.5rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Стили для группы кнопок */
+.group-btn-driver {
+    display: flex;
+}
+
+
+.btn-driver, .btn-drivers{
+    padding: 0.375rem 0.75rem;
+    border: none;
+    outline: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.btn-driver{
+    border-radius: 20px;
+}
+
+.group-btn-driver .btn-drivers:first-child {
+    border-top-left-radius: var(--btn-border-radius);
+    border-bottom-left-radius: var(--btn-border-radius);
+}
+
+.group-btn-driver .btn-drivers:last-child {
+    border-top-right-radius: var(--btn-border-radius);
+    border-bottom-right-radius: var(--btn-border-radius);
+}
+
+.btn-driver:hover, .btn-drivers:hover{
+    background-color: var(--button-hover);
+}

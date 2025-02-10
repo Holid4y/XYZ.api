@@ -1,0 +1,595 @@
+/* Общие стили для контейнеров */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Стили для плавающего label */
+.label-inside {
+    margin-top: 30px;
+    position: relative;
+}
+
+.label-inside label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 4px;
+    color: var(--text-muted);
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;
+}
+
+/* Анимация label при фокусе или заполненном поле */
+.label-inside input:focus + label, .label-inside input:not(:placeholder-shown) + label,
+.label-inside textarea:focus + label, .label-inside textarea:not(:placeholder-shown) + label{
+    top: -15px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: var(--text-color);
+    padding: 0;
+}
+
+/* Стили для плавающего label */
+.label-inside-line {
+    position: relative;
+}
+
+.label-inside-line label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid transparent;
+    color: var(--text-muted);
+    font-size: 14px;
+    transition: transform 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out;
+    pointer-events: none;
+    padding: 2px 10px;
+    border-radius: 6px;
+}
+
+/* Анимация label при фокусе или заполненном поле */
+.label-inside-line input:focus + label, .label-inside-line input:not(:placeholder-shown) + label,
+.label-inside-line textarea:focus + label, .label-inside-line textarea:not(:placeholder-shown) + label{
+    top: 0;
+    border: 1px solid var(--card-border);
+    background-color: var(--card-bg);
+}
+
+
+/* Базовые стили для input и textarea */
+.input-form {
+    width: 100%;
+    padding: 1rem;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-color);
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    outline: none;
+}
+
+/* Восстанавливаем видимость placeholder для обычных input */
+.input-form::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
+}
+
+/* Стили для textarea */
+textarea.input-form {
+    min-height: 55px;
+    resize: vertical;
+}
+
+/* Textarea с кнопками */
+.textarea-with-buttons {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.textarea-with-buttons textarea {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.group-textarea {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-top: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.group-textarea-item {
+    display: flex;
+    gap: 8px;
+}
+
+.group-textarea-item .item-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.group-textarea-item .item-btn:hover {
+    background-color: #282830;
+}
+
+/* Input groups */
+.input-group {
+    display: flex;
+    align-items: stretch;
+}
+
+.select-form{
+    max-width: 15%;
+    background-color: #282830;
+}
+
+.input-group .input-form {
+    border-radius: 0;
+}
+
+.input-group .input-form:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.input-group .input-form:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.input-group-text {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    background-color: #282830;
+    border: 1px solid var(--card-border);
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.input-group-text:first-child {
+    border-right: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.input-group-text:last-child {
+    border-left: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Валидация */
+.input-form.is-invalid {
+    border-color: var(--input-error);
+}
+
+.input-form.is-valid {
+    border-color: var(--input-success);
+}
+
+.invalid-feedback,
+.valid-feedback {
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+.invalid-feedback {
+    color: var(--input-error);
+}
+
+.valid-feedback {
+    color: var(--input-success);
+}
+
+/* Select */
+select.input-form {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+}
+
+select.input-form[multiple] {
+    background-image: none;
+    padding-right: 16px;
+    min-height: 120px;
+}
+
+/* Disabled состояние */
+.input-form:disabled {
+    background-color: var(--disabled-bg);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Toggle switch стили */
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 51px;
+    height: 31px;
+    margin: 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+/* Скрываем стандартный checkbox */
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+}
+
+/* Стили для слайдера */
+.toggle-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e9e9ea;
+    border-radius: 31px;
+    transition: .4s;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Кружок переключателя */
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 27px;
+    width: 27px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Состояние при наведении */
+.toggle:hover .toggle-slider:before {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Активное состояние */
+.toggle input:checked + .toggle-slider {
+    background-color: #00b460;
+}
+
+.toggle input:checked + .toggle-slider:before {
+    transform: translateX(20px);
+}
+
+/* Состояние фокуса */
+.toggle input:focus + .toggle-slider {
+    box-shadow: 0 0 1px #00b460;
+}
+
+/* Disabled состояние */
+.toggle input:disabled + .toggle-slider {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Анимация при переключении */
+.toggle-slider,
+.toggle-slider:before {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Кастомный select */
+.custom-select {
+    position: relative;
+    width: 100%;
+}
+
+.custom-select.searchable .select-options{
+    width: 100%;
+}
+
+.select-trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.custom-select.open .select-trigger {
+    border-color: var(--primary-color, #007bff);
+}
+
+.select-value {
+    color: var(--text-color, #333);
+    font-size: 14px;
+}
+
+.select-arrow {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-muted, #666);
+    transition: transform 0.2s ease;
+}
+
+.custom-select.open .select-arrow {
+    transform: rotate(180deg);
+}
+
+.select-options {
+    position: absolute;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    max-width: 100%;
+    max-height: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+.custom-select.open .select-options {
+    opacity: 1;
+    visibility: visible;
+}
+
+.select-option {
+    padding: 12px 16px;
+    color: var(--text-color);
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.select-option:hover {
+    background-color: #282830;
+}
+
+/* Стили для поиска */
+.select-search {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.select-search::placeholder {
+    color: var(--text-muted);
+}
+
+/* Скроллбар */
+.select-options::-webkit-scrollbar {
+    width: 8px;
+}
+
+.select-options::-webkit-scrollbar-track {
+    background: var(--card-bg);
+    border-radius: 4px;
+}
+
+.select-options::-webkit-scrollbar-thumb {
+    background: var(--card-border);
+    border-radius: 4px;
+}
+
+.select-options::-webkit-scrollbar-thumb:hover {
+    background: var(--card-border);
+}
+
+/* Top позиционирование */
+.custom-select.top .select-options {
+    bottom: 110%;
+    width: 100%;
+}
+
+/* Bottom позиционирование */
+.custom-select.bottom .select-options {
+    top: 110%;
+    width: 100%;
+}
+
+/* Left позиционирование */
+.custom-select.left .select-options {
+    right: 100%;
+    top: 0;
+    margin-right: 8px;
+}
+
+/* Right позиционирование */
+.custom-select.right .select-options {
+    left: 100%;
+    top: 0;
+    margin-left: 8px;
+}
+
+/* Top Right позиционирование */
+.custom-select.top-right .select-options {
+    right: 0;
+    bottom: 110%;
+    margin-left: 8px;
+}
+
+/* Top Left позиционирование */
+.custom-select.top-left .select-options {
+    left: 0;
+    bottom: 110%;
+    margin-right: 8px;
+}
+
+/* Bottom Right позиционирование */
+.custom-select.bottom-right .select-options {
+    right: 0;
+    top: 110%;
+    margin-left: 8px;
+}
+
+/* Bottom Left позиционирование */
+.custom-select.bottom-left .select-options {
+    left: 0;
+    top: 110%;
+    margin-right: 8px;
+}
+
+
+/* Автоматическое позиционирование */
+.custom-select.auto .select-options {
+    /* Базовые стили, позиция определяется через JavaScript */
+    right: 0;
+    margin-top: 8px;
+}
+
+/* Убираем фиксированные border-radius для auto позиционирования */
+.custom-select.auto .select-trigger {
+    border-radius: 8px;
+}
+
+.custom-select.auto.open .select-trigger {
+    border-radius: 8px;
+}
+
+
+/* Стили для радио-кнопок и чекбоксов */
+.radio-label,
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--text-color);
+    transition: color var(--transition-speed);
+}
+
+.radio-label:hover,
+.checkbox-label:hover {
+    color: var(--primary-hover-color);
+}
+
+/* Кастомные радио-кнопки */
+.radio-custom {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    position: relative;
+    transition: border-color var(--transition-speed);
+}
+
+.radio-custom::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: var(--input-success);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform var(--transition-speed);
+}
+
+.radio-input:checked + .radio-custom {
+    border-color: var(--primary-color);
+}
+
+.radio-input:checked + .radio-custom::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Кастомные чекбоксы */
+.checkbox-custom {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    position: relative;
+    transition: border-color var(--transition-speed), background-color var(--transition-speed);
+}
+
+.checkbox-custom::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform var(--transition-speed);
+}
+
+.checkbox-input:checked + .checkbox-custom {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+}
+
+.checkbox-input:checked + .checkbox-custom::before {
+    transform: translate(-50%, -50%) scale(1);
+    background-color: var(--input-success);
+}
+
+/* Стили для отключенного чекбокса и его псевдо-элемента */
+.checkbox-input:disabled + .checkbox-custom,
+.checkbox-input:disabled + .checkbox-custom + span {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.checkbox-label-text{
+    font-size: 1rem;
+}
+/* Скрываем стандартные элементы */
+.radio-input,
+.checkbox-input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}

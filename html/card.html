@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Switcher</title>
+    
+    <link rel="stylesheet" href="../style/grid.css">
+    <link rel="stylesheet" href="../style/button.css">
+    <link rel="stylesheet" href="../style/card.css">
+    <link rel="stylesheet" href="../style/drivers.css">
+    <link rel="stylesheet" href="../style/input.css">
+    <link rel="stylesheet" href="../style/form.css">
+    <link rel="stylesheet" href="../style/style.css">
+
+    <style>
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background-color: var(--button-bg);
+            color: var(--button-color);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 9999;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--button-hover);
+        }
+
+        .theme-toggle-icon {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="container grid my-3">
+        <h5 class="col-10">Card</h5>
+        <a href="../main.html" class="col-2">
+            <button class="btn primary w-100">На главную</button>
+        </a>   
+    </header>
+    <main class="container">
+
+        <div class="grid my-5">
+            <div class="card col-12 col-xs-6 col-md-4 col-lg-3">
+                <div class="card-header border-bottom pb-3">
+                    <div class="net-grid">header</div>
+                </div>
+                <div class="card-body">
+                    <div class="net-grid">body</div>
+                </div>
+                <div class="card-footer border-top pt-3">
+                    <div class="net-grid">footer</div>
+                </div>
+            </div>
+
+            <div class="card col-12 col-xs-6 col-md-4 col-lg-3">
+                <div class="card-header border-bottom pb-3">
+                    <div class="net-grid">header</div>
+                </div>
+                <div class="card-footer pt-3">
+                    <div class="net-grid">footer</div>
+                </div>
+            </div>
+
+            <div class="card col-12 col-xs-6 col-md-4 col-lg-3">
+                <div class="card-header border-bottom pb-3">
+                    <div class="net-grid">header</div>
+                </div>
+                <div class="card-body">
+                    <div class="net-grid">body</div>
+                </div>
+            </div>
+
+            <div class="card col-12 col-xs-6 col-md-4 col-lg-3">
+                <div class="card-body">
+                    <div class="net-grid">body</div>
+                </div>
+                <div class="card-footer border-top pt-3">
+                    <div class="net-grid">footer</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid my-5">
+            <div class="card col-12 col-xs-6 col-md-4 col-lg-3">
+                <div class="card-header">
+                    <div class="net-grid">header</div>
+                </div>
+                <div class="card-body">
+                    <div class="net-grid">body</div>
+                </div>
+                <div class="card-footer">
+                    <div class="net-grid">footer</div>
+                </div>
+            </div>
+
+            <div class="card col-12 col-xs-6 col-md-4 col-lg-3">
+                <div class="card-header pb-3">
+                    <div class="net-grid">header</div>
+                </div>
+                <div class="card-footer">
+                    <div class="net-grid">footer</div>
+                </div>
+            </div>
+
+            <div class="card col-12 col-xs-6 col-md-4 col-lg-3">
+                <div class="card-header">
+                    <div class="net-grid">header</div>
+                </div>
+                <div class="card-body">
+                    <div class="net-grid">body</div>
+                </div>
+            </div>
+
+            <div class="card col-12 col-xs-6 col-md-4 col-lg-3">
+                <div class="card-body">
+                    <div class="net-grid">body</div>
+                </div>
+                <div class="card-footer">
+                    <div class="net-grid">footer</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid">
+            <div class="card col-12 col-xs-6 col-md-4 col-lg-3">
+                <div class="card-header">
+                    <h5>Default Card</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, aliquam?</p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn primary">Primary</button>
+                </div>
+            </div>
+    
+            <div class="card col-12 col-xs-6 col-md-4 col-lg-3 bg-transparent">
+                <div class="card-header">
+                    <h5>No Background</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, aliquam?</p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn primary">Primary</button>
+                </div>
+            </div>
+    
+            <div class="card col-12 col-xs-6 col-md-4 col-lg-3 bordered">
+                <div class="card-header">
+                    <h5>Bordered Card</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, aliquam?</p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn primary">Primary</button>
+                </div>
+            </div>
+    
+            <div class="card col-12 col-xs-6 col-md-4 col-lg-3 card-shadow">
+                <div class="card-header">
+                    <h5>Shadow Card</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, aliquam?</p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn primary">Primary</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid my-5">
+            <div class="card col-12 col-xs-6">
+                <div class="card-header">
+                    <img src="https://masterpiecer-images.s3.yandex.net/600b2205436f8d5:upscaled" alt="Avatar" class="card-avatar-img">
+                    <div class="card-avatar-title">
+                        <h5>Chelsea Hagon</h5>
+                        <small class="text-muted">December 9 at 11:43 AM</small>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo impedit sapiente recusandae iusto officiis dolor? Laborum quibusdam quam, quidem vel assumenda repellat inventore sint nesciunt, ullam asperiores magnam placeat eveniet. Aliquam voluptatibus assumenda distinctio veniam quam tempora modi aperiam nemo voluptate reprehenderit quidem, nisi vero est.</p>
+                </div>
+            </div>
+
+            <div class="card col-12 col-xs-6">
+                <div class="card-header space-between border-bottom">
+                    <div class="card-avatar-title">
+                        <h5>Chelsea Hagon</h5>
+                        <small class="text-muted">December 9 at 11:43 AM</small>
+                    </div>
+                    <button class="btn primary">Primary</button>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo impedit sapiente recusandae iusto officiis dolor? Laborum quibusdam quam, quidem vel assumenda repellat inventore sint nesciunt, ullam asperiores magnam placeat eveniet. Aliquam voluptatibus assumenda distinctio veniam.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid my-5">
+            <div class="card col-12 col-xs-6 col-md-4 col-lg-3 rounded-30">
+                <div class="card-header">
+                    <img src="https://masterpiecer-images.s3.yandex.net/600b2205436f8d5:upscaled" width="100%" height="100%" alt="Card Image" class="card-img rounded-20">
+
+                    <div class="group-btn-card">
+                        <button>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.00101 10C11.2101 10 13.001 8.20914 13.001 6C13.001 3.79086 11.2101 2 9.00101 2C6.79187 2 5.00101 3.79086 5.00101 6C5.00101 8.20914 6.79187 10 9.00101 10Z" fill="#D80452"/>
+                                <path d="M9.00101 21.001C12.867 21.001 16.001 19.2101 16.001 17.001C16.001 14.7918 12.867 13.001 9.00101 13.001C5.13501 13.001 2.00101 14.7918 2.00101 17.001C2.00101 19.2101 5.13501 21.001 9.00101 21.001Z" fill="#D80452"/>
+                                <path d="M21 17C21 18.657 18.964 20 16.479 20C17.211 19.2 17.715 18.195 17.715 17.002C17.715 15.807 17.21 14.802 16.476 14.001C18.962 14 21 15.344 21 17ZM18 6.00002C18.0003 6.48273 17.8842 6.9584 17.6614 7.38663C17.4386 7.81485 17.1157 8.183 16.7203 8.4598C16.3248 8.7366 15.8684 8.91388 15.3897 8.97659C14.9111 9.0393 14.4244 8.98559 13.971 8.82002C14.459 7.96035 14.7151 6.98854 14.714 6.00002C14.714 4.97502 14.444 4.01302 13.972 3.18102C14.4254 3.01565 14.912 2.9621 15.3904 3.02491C15.8689 3.08772 16.3252 3.26503 16.7206 3.54181C17.1159 3.81859 17.4386 4.18665 17.6614 4.61477C17.8841 5.04289 18.0003 5.51742 18 6.00002Z" fill="#D80452"/>
+                            </svg>
+                            <small>241</small>
+                        </button>
+                        <button>
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.732 20.77L13.274 19.854L11.984 19.09L11.441 20.006L12.732 20.77ZM8.726 19.854L9.268 20.77L10.558 20.006L10.017 19.09L8.726 19.854ZM11.441 20.006C11.3943 20.0808 11.3293 20.1425 11.2521 20.1853C11.175 20.228 11.0882 20.2505 11 20.2505C10.9118 20.2505 10.825 20.228 10.7479 20.1853C10.6707 20.1425 10.6057 20.0808 10.559 20.006L9.268 20.77C10.041 22.077 11.958 22.077 12.732 20.77L11.441 20.006ZM9.5 1.75H12.5V0.25H9.5V1.75ZM20.25 9.5V10.5H21.75V9.5H20.25ZM1.75 10.5V9.5H0.25V10.5H1.75ZM0.25 10.5C0.25 11.655 0.25 12.558 0.3 13.287C0.35 14.022 0.453 14.634 0.688 15.2L2.074 14.626C1.927 14.274 1.841 13.844 1.796 13.185C1.75 12.519 1.75 11.675 1.75 10.5H0.25ZM6.803 17.242C5.547 17.22 4.889 17.14 4.373 16.926L3.8 18.312C4.605 18.646 5.521 18.721 6.777 18.743L6.803 17.242ZM0.688 15.2C0.976965 15.8977 1.40052 16.5316 1.93448 17.0655C2.46844 17.5995 3.10234 18.023 3.8 18.312L4.373 16.926C3.33168 16.4947 2.50535 15.6673 2.074 14.626L0.688 15.2ZM20.25 10.5C20.25 11.675 20.25 12.519 20.204 13.185C20.159 13.844 20.073 14.274 19.927 14.626L21.312 15.2C21.547 14.634 21.65 14.022 21.701 13.287C21.751 12.558 21.75 11.655 21.75 10.5H20.25ZM15.223 18.741C16.479 18.72 17.395 18.646 18.2 18.312L17.626 16.926C17.111 17.14 16.453 17.22 15.198 17.242L15.223 18.741ZM19.927 14.626C19.4957 15.6673 18.6683 16.4947 17.627 16.926L18.2 18.312C18.8977 18.023 19.5316 17.5995 20.0655 17.0655C20.5995 16.5316 21.023 15.8977 21.312 15.2L19.927 14.626ZM12.5 1.75C14.151 1.75 15.337 1.75 16.262 1.839C17.176 1.926 17.757 2.092 18.221 2.376L19.004 1.097C18.265 0.645 17.427 0.443 16.404 0.345C15.392 0.249 14.122 0.25 12.5 0.25V1.75ZM21.75 9.5C21.75 7.878 21.75 6.609 21.654 5.596C21.557 4.573 21.355 3.734 20.903 2.996L19.623 3.779C19.908 4.243 20.074 4.824 20.161 5.739C20.249 6.663 20.25 7.849 20.25 9.5H21.75ZM18.22 2.376C18.7922 2.7263 19.2733 3.20707 19.624 3.779L20.903 2.996C20.4288 2.22198 19.778 1.57123 19.004 1.097L18.22 2.376ZM9.5 0.25C7.878 0.25 6.609 0.25 5.596 0.345C4.573 0.443 3.734 0.645 2.996 1.097L3.779 2.377C4.243 2.092 4.824 1.926 5.739 1.839C6.663 1.751 7.849 1.75 9.5 1.75V0.25ZM1.75 9.5C1.75 7.849 1.75 6.663 1.839 5.738C1.926 4.824 2.092 4.243 2.376 3.779L1.097 2.997C0.645 3.735 0.443 4.573 0.345 5.596C0.25 6.61 0.25 7.878 0.25 9.5H1.75ZM2.996 1.097C2.22198 1.57123 1.57123 2.22298 1.097 2.997L2.377 3.779C2.72714 3.2073 3.20755 2.72655 3.779 2.376L2.996 1.097ZM10.016 19.09C9.814 18.747 9.636 18.444 9.462 18.206C9.28372 17.9444 9.05109 17.7244 8.78 17.561L8.026 18.858C8.073 18.886 8.138 18.936 8.25 19.09C8.371 19.256 8.508 19.486 8.726 19.854L10.016 19.09ZM6.777 18.741C7.217 18.749 7.494 18.755 7.706 18.778C7.904 18.8 7.981 18.832 8.026 18.858L8.78 17.561C8.50055 17.4046 8.19033 17.3111 7.871 17.287C7.573 17.254 7.215 17.249 6.803 17.242L6.777 18.741ZM13.274 19.854C13.492 19.487 13.629 19.256 13.75 19.09C13.862 18.936 13.927 18.886 13.974 18.858L13.22 17.561C12.93 17.731 12.72 17.956 12.538 18.206C12.365 18.444 12.186 18.746 11.983 19.09L13.274 19.854ZM15.198 17.242C14.786 17.249 14.427 17.254 14.129 17.287C13.818 17.322 13.513 17.391 13.22 17.561L13.974 18.858C14.019 18.832 14.096 18.8 14.294 18.778C14.506 18.755 14.784 18.748 15.224 18.741L15.198 17.242Z" fill="#1743DF"/>
+                                <path opacity="0.5" d="M7 8H15M7 11.5H12.5" stroke="#1743DF" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <small>182</small>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body pt-4">
+                    <h5>Image Card</h5>
+                    <p class="card-text">This card contains</p>
+                </div>
+            </div>
+            <div class="card col-12 col-xs-6 col-md-4 col-lg-3 rounded-30">
+                <div class="card-header">
+                    <img src="https://masterpiecer-images.s3.yandex.net/600b2205436f8d5:upscaled" width="100%" height="100%" alt="Card Image" class="card-img rounded-20">
+
+                    <div class="group-btn-card">
+                        <button>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.00101 10C11.2101 10 13.001 8.20914 13.001 6C13.001 3.79086 11.2101 2 9.00101 2C6.79187 2 5.00101 3.79086 5.00101 6C5.00101 8.20914 6.79187 10 9.00101 10Z" fill="#D80452"/>
+                                <path d="M9.00101 21.001C12.867 21.001 16.001 19.2101 16.001 17.001C16.001 14.7918 12.867 13.001 9.00101 13.001C5.13501 13.001 2.00101 14.7918 2.00101 17.001C2.00101 19.2101 5.13501 21.001 9.00101 21.001Z" fill="#D80452"/>
+                                <path d="M21 17C21 18.657 18.964 20 16.479 20C17.211 19.2 17.715 18.195 17.715 17.002C17.715 15.807 17.21 14.802 16.476 14.001C18.962 14 21 15.344 21 17ZM18 6.00002C18.0003 6.48273 17.8842 6.9584 17.6614 7.38663C17.4386 7.81485 17.1157 8.183 16.7203 8.4598C16.3248 8.7366 15.8684 8.91388 15.3897 8.97659C14.9111 9.0393 14.4244 8.98559 13.971 8.82002C14.459 7.96035 14.7151 6.98854 14.714 6.00002C14.714 4.97502 14.444 4.01302 13.972 3.18102C14.4254 3.01565 14.912 2.9621 15.3904 3.02491C15.8689 3.08772 16.3252 3.26503 16.7206 3.54181C17.1159 3.81859 17.4386 4.18665 17.6614 4.61477C17.8841 5.04289 18.0003 5.51742 18 6.00002Z" fill="#D80452"/>
+                            </svg>
+                            <small>241</small>
+                        </button>
+                        <button>
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.732 20.77L13.274 19.854L11.984 19.09L11.441 20.006L12.732 20.77ZM8.726 19.854L9.268 20.77L10.558 20.006L10.017 19.09L8.726 19.854ZM11.441 20.006C11.3943 20.0808 11.3293 20.1425 11.2521 20.1853C11.175 20.228 11.0882 20.2505 11 20.2505C10.9118 20.2505 10.825 20.228 10.7479 20.1853C10.6707 20.1425 10.6057 20.0808 10.559 20.006L9.268 20.77C10.041 22.077 11.958 22.077 12.732 20.77L11.441 20.006ZM9.5 1.75H12.5V0.25H9.5V1.75ZM20.25 9.5V10.5H21.75V9.5H20.25ZM1.75 10.5V9.5H0.25V10.5H1.75ZM0.25 10.5C0.25 11.655 0.25 12.558 0.3 13.287C0.35 14.022 0.453 14.634 0.688 15.2L2.074 14.626C1.927 14.274 1.841 13.844 1.796 13.185C1.75 12.519 1.75 11.675 1.75 10.5H0.25ZM6.803 17.242C5.547 17.22 4.889 17.14 4.373 16.926L3.8 18.312C4.605 18.646 5.521 18.721 6.777 18.743L6.803 17.242ZM0.688 15.2C0.976965 15.8977 1.40052 16.5316 1.93448 17.0655C2.46844 17.5995 3.10234 18.023 3.8 18.312L4.373 16.926C3.33168 16.4947 2.50535 15.6673 2.074 14.626L0.688 15.2ZM20.25 10.5C20.25 11.675 20.25 12.519 20.204 13.185C20.159 13.844 20.073 14.274 19.927 14.626L21.312 15.2C21.547 14.634 21.65 14.022 21.701 13.287C21.751 12.558 21.75 11.655 21.75 10.5H20.25ZM15.223 18.741C16.479 18.72 17.395 18.646 18.2 18.312L17.626 16.926C17.111 17.14 16.453 17.22 15.198 17.242L15.223 18.741ZM19.927 14.626C19.4957 15.6673 18.6683 16.4947 17.627 16.926L18.2 18.312C18.8977 18.023 19.5316 17.5995 20.0655 17.0655C20.5995 16.5316 21.023 15.8977 21.312 15.2L19.927 14.626ZM12.5 1.75C14.151 1.75 15.337 1.75 16.262 1.839C17.176 1.926 17.757 2.092 18.221 2.376L19.004 1.097C18.265 0.645 17.427 0.443 16.404 0.345C15.392 0.249 14.122 0.25 12.5 0.25V1.75ZM21.75 9.5C21.75 7.878 21.75 6.609 21.654 5.596C21.557 4.573 21.355 3.734 20.903 2.996L19.623 3.779C19.908 4.243 20.074 4.824 20.161 5.739C20.249 6.663 20.25 7.849 20.25 9.5H21.75ZM18.22 2.376C18.7922 2.7263 19.2733 3.20707 19.624 3.779L20.903 2.996C20.4288 2.22198 19.778 1.57123 19.004 1.097L18.22 2.376ZM9.5 0.25C7.878 0.25 6.609 0.25 5.596 0.345C4.573 0.443 3.734 0.645 2.996 1.097L3.779 2.377C4.243 2.092 4.824 1.926 5.739 1.839C6.663 1.751 7.849 1.75 9.5 1.75V0.25ZM1.75 9.5C1.75 7.849 1.75 6.663 1.839 5.738C1.926 4.824 2.092 4.243 2.376 3.779L1.097 2.997C0.645 3.735 0.443 4.573 0.345 5.596C0.25 6.61 0.25 7.878 0.25 9.5H1.75ZM2.996 1.097C2.22198 1.57123 1.57123 2.22298 1.097 2.997L2.377 3.779C2.72714 3.2073 3.20755 2.72655 3.779 2.376L2.996 1.097ZM10.016 19.09C9.814 18.747 9.636 18.444 9.462 18.206C9.28372 17.9444 9.05109 17.7244 8.78 17.561L8.026 18.858C8.073 18.886 8.138 18.936 8.25 19.09C8.371 19.256 8.508 19.486 8.726 19.854L10.016 19.09ZM6.777 18.741C7.217 18.749 7.494 18.755 7.706 18.778C7.904 18.8 7.981 18.832 8.026 18.858L8.78 17.561C8.50055 17.4046 8.19033 17.3111 7.871 17.287C7.573 17.254 7.215 17.249 6.803 17.242L6.777 18.741ZM13.274 19.854C13.492 19.487 13.629 19.256 13.75 19.09C13.862 18.936 13.927 18.886 13.974 18.858L13.22 17.561C12.93 17.731 12.72 17.956 12.538 18.206C12.365 18.444 12.186 18.746 11.983 19.09L13.274 19.854ZM15.198 17.242C14.786 17.249 14.427 17.254 14.129 17.287C13.818 17.322 13.513 17.391 13.22 17.561L13.974 18.858C14.019 18.832 14.096 18.8 14.294 18.778C14.506 18.755 14.784 18.748 15.224 18.741L15.198 17.242Z" fill="#1743DF"/>
+                                <path opacity="0.5" d="M7 8H15M7 11.5H12.5" stroke="#1743DF" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <small>182</small>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body pt-4">
+                    <h5>Image Card</h5>
+                    <p class="card-text">This card contains</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card col-12 card-img-block bg-main rounded-20">
+                <div class="card-header p-3">
+                    <img src="https://masterpiecer-images.s3.yandex.net/600b2205436f8d5:upscaled" width="100%" height="100%" alt="Card Image" class="card-img">
+                </div>
+                <div class="card-body">
+                    <h5>Image Card</h5>
+                    <p class="card-text">This card contains an image as a header.</p>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="grid my-5">
+            <div class="card col-12 col-xs-6">
+                <div class="card-body">
+                    <div class="net-grid">list 1</div>
+                </div>
+                <div class="card-body">
+                    <div class="net-grid">list 2</div>
+                </div>
+                <div class="card-body">
+                    <div class="net-grid">list 3</div>
+                </div>
+            </div>
+
+            <div class="col-12 col-xs-6">
+                <div class="card-body">
+                    <div class="net-grid">list 1</div>
+                </div>
+                <div class="card-body">
+                    <div class="net-grid">list 2</div>
+                </div>
+                <div class="card-body">
+                    <div class="net-grid">list 3</div>
+                </div>
+            </div>
+
+            <div class="col-12 col-xs-6">
+                <div class="card-body border-bottom px-0">
+                    <div class="net-grid">list 1</div>
+                </div>
+                <div class="card-body border-bottom px-0">
+                    <div class="net-grid">list 2</div>
+                </div>
+                <div class="card-body px-0">
+                    <div class="net-grid">list 3</div>
+                </div>
+            </div>
+
+            <div class="col-12 col-xs-6">
+                <div class="card-body bg-main">
+                    <div class="net-grid">list 1</div>
+                </div>
+                <div class="card-body bg-main my-3">
+                    <div class="net-grid">list 2</div>
+                </div>
+                <div class="card-body bg-main">
+                    <div class="net-grid">list 3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            
+        </div>
+        
+    </main>
+
+    <button id="theme-toggle" class="theme-toggle">
+        <span class="theme-toggle-icon">🌓</span>
+    </button>
+
+    <script src="../js/custom-select.js"></script>
+    <script src="../js/frame.js"></script>
+    <script src="../js/themes.js"></script>
+    <script src="../js/apiv0.js"></script>
+</body>
+</html>

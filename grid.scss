@@ -1,0 +1,52 @@
+// Переменные
+$columns: 12; // Максимальное количество колонок
+$gap: 16px;   // Отступы между колонками
+$breakpoints: (
+  xs: 575px,   // Телефоны
+  sm: 768px,   // Планшеты
+  md: 992px,   // Ноутбуки
+  lg: 1200px   // Десктопы
+);
+
+// Сетка-контейнер
+.grid {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+
+  // Убедитесь, что контент не выйдет за пределы колонки
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+// Автоматическое распределение колонок
+.grid-auto-col {
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-template-columns: unset;
+}
+
+// Автоматическая генерация классов .col-1 ... .col-12
+@for $i from 1 through $columns {
+  .col-#{$i} {
+    grid-column: span $i;
+    max-width: 100%; // предотвращает выход за пределы
+    word-wrap: break-word; // защита от переполнения
+    overflow-wrap: break-word; // защита от переполнения
+  }
+}
+
+// Генерация адаптивных колонок
+@each $name, $size in $breakpoints {
+  @media (min-width: $size) {
+    @for $i from 1 through $columns {
+      .col-#{$name}-#{$i} {
+        grid-column: span $i;
+        max-width: 100%; // предотвращает выход за пределы
+        word-wrap: break-word; // защита от переполнения
+        overflow-wrap: break-word; // защита от переполнения
+      }
+    }
+  }
+}
