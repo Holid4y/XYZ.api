@@ -13,10 +13,9 @@
     border: 1px solid transparent;
     border-radius: var(--btn-border-radius);
     transition: var(--btn-transition);
-    background-color: var(--btn-default-bg);
-    border-color: var(--btn-default-border);
-    color: var(--btn-default-color);
-    /* margin-bottom: 10px; */
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--btn-primary-color);
 }
 
 /* Button variants */
