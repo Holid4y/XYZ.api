@@ -50,24 +50,28 @@
         </a> 
     </header>
     <main class="container">
-        <div class="grid cols-6">
-            <div class="card p-3" style="display: flex; align-items: center; justify-content: center;">
-                <span class="loader"></span>
+        <div id="frame">
+            <div class="main-block text-center">
+                <div class="grid cols-5">
+                    <div class="card p-3" style="display: flex; align-items: center; justify-content: center;">
+                        <span class="loader"></span>
+                    </div>
+                    <div class="card p-3" style="display: flex; align-items: center; justify-content: center;">
+                        <span class="loader loader-border-sm"></span>
+                    </div>
+                    <div class="card p-3" style="display: flex; align-items: center; justify-content: center;">
+                        <span class="loader loader-border"></span>
+                    </div>
+                    <div class="card p-3" style="display: flex; align-items: center; justify-content: center;">
+                        <span class="loader loader-circle"></span>
+                    </div>
+                    <div class="card p-3" style="display: flex; align-items: center; justify-content: center;">
+                        <span class="loader loader-dots"><span></span></span>
+                    </div>
+                </div>
             </div>
-            <div class="card p-3" style="display: flex; align-items: center; justify-content: center;">
-                <span class="loader loader-border-sm"></span>
-            </div>
-            <div class="card p-r" style="display: flex; align-items: center; justify-content: center;">
-                <span class="loader loader-border"></span>
-            </div>
-            <div class="card p-3" style="display: flex; align-items: center; justify-content: center;">
-                <span class="loader loader-circle"></span>
-            </div>
-            <div class="card p-3" style="display: flex; align-items: center; justify-content: center;">
-                <span class="loader loader-dots"><span></span></span>
-            </div>
-        </div>
-        <pre class="copy-to-clipboard"><code class="language-html">&lt;div class="card p-3"&gt;
+            <div class="code-block">
+<pre class="copy-to-clipboard m-0"><code class="language-html">&lt;div class="card p-3"&gt;
     &lt;span class="loader" &gt;&lt;/span&gt;
 &lt;/div&gt;
 
@@ -75,7 +79,7 @@
     &lt;span class="loader loader-border-sm"&gt;&lt;/span&gt;
 &lt;/div&gt;
 
-&lt;div class="card p-r"&gt;
+&lt;div class="card p-3"&gt;
     &lt;span class="loader loader-border"&gt;&lt;/span&gt;
 &lt;/div&gt;
 
@@ -86,55 +90,58 @@
 &lt;div class="card p-3"&gt;
     &lt;span class="loader loader-dots"&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;/div&gt;</code></pre>
-
-        <h5 class="mt-5">Position</h5>
-        <div id="frame" class="py-3">
-            <div class="text-center">
-                <div class="loader loader-border" role="status"></div>
             </div>
         </div>
-        <pre class="copy-to-clipboard mb-5"><code class="language-html">&lt;div class="text-center"&gt;
-    &lt;div class="loader loader-border" role="status"&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
 
-        <div id="frame" class="py-3">
-            <div class="text-start">
+        <h5 class="mt-5 mb-3">Position</h5>
+        <div id="frame">
+            <div class="main-block center">
                 <div class="loader loader-border" role="status"></div>
             </div>
-        </div>
-        <pre class="copy-to-clipboard mb-5"><code class="language-html">&lt;div class="text-start"&gt;
+            <div class="code-block">
+<pre class="copy-to-clipboard m-0"><code class="language-html">&lt;div class="text-center"&gt;
     &lt;div class="loader loader-border" role="status"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-
-        <div id="frame" class="py-3">
-            <div class="text-end">
-                <div class="loader loader-border" role="status"></div>
             </div>
         </div>
-        <pre class="copy-to-clipboard mb-5"><code class="language-html">&lt;div class="text-end"&gt;
+        
+
+        <div id="frame" class="mt-5">
+            <div class="main-block start">
+                <div class="loader loader-border" role="status"></div>
+            </div>
+            <div class="code-block">
+<pre class="copy-to-clipboard m-0"><code class="language-html">&lt;div class="text-start"&gt;
     &lt;div class="loader loader-border" role="status"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        
 
-        <h5>Size</h5>
-        <div id="frame" class="py-3">
-            <div class="text-center">
+        <div id="frame" class="mt-5">
+            <div class="main-block end">
+                <div class="loader loader-border" role="status"></div>
+            </div>
+            <div class="code-block">
+<pre class="copy-to-clipboard m-0"><code class="language-html">&lt;div class="text-end"&gt;
+    &lt;div class="loader loader-border" role="status"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        
+
+        <h5 class="mt-5 mb-3">Size</h5>
+        <div id="frame" class="mb-5">
+            <div class="main-block center">
                 <div class="loader-sm loader-border" role="status"></div>
                 <div class="loader-sm loader-circle" role="status"></div>
             </div>
-        </div>
-        <pre class="copy-to-clipboard mb-5"><code class="language-html">&lt;div class="text-center"&gt;
+            <div class="code-block">
+<pre class="copy-to-clipboard m-0"><code class="language-html">&lt;div class="text-center"&gt;
     &lt;div class="loader-sm loader-border" role="status"&gt;&lt;/div&gt;
     &lt;div class="loader-sm loader-circle" role="status"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-        
-        <div id="frame" class="my-5 py-3">
-            <h1>Loader <span class="loader"></span></h1>
-            <h2>Loader <span class="loader loader-border-sm"></span></h2>
-            <h3>Loader <span class="loader loader-border"></span></h3>
-            <h4>Loader <span class="loader loader-circle"></span></h4>
-            <h5>Loader <span class="loader loader-dots"><span></span></span></h5>
-            <p>Loader <span class="loader"></span></p>
-            <div>Loader <span class="loader"></span></div>
+            </div>
         </div>
         
     </main>
