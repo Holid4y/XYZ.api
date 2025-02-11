@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ.api</title>
+    
+    <link rel="stylesheet" href="../style/grid.css">
+    <link rel="stylesheet" href="../style/button.css">
+    <link rel="stylesheet" href="../style/card.css">
+    <link rel="stylesheet" href="../style/drivers.css">
+    <link rel="stylesheet" href="../style/input.css">
+    <link rel="stylesheet" href="../style/form.css">
+    <link rel="stylesheet" href="../style/spinner.css">
+    <link rel="stylesheet" href="../style/popover.css">
+    <link rel="stylesheet" href="../style/notification.css">
+    <link rel="stylesheet" href="../style/style.css">
+    
+    <style>
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background-color: var(--button-bg);
+            color: var(--button-color);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 9999;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--button-hover);
+        }
+
+        .theme-toggle-icon {
+            font-size: 1.5rem;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../prism/prism.css">
+    
+</head>
+<body>
+    <header class="container grid my-3">
+        <h5 class="col-10">Notification</h5>
+        <a href="../index.html" class="col-2">
+            <button class="btn primary w-100">На главную</button>
+        </a> 
+    </header>
+    <main class="container">
+        
+        <div class="form-container">
+            <!-- Простой кастомный notification -->
+            <div class="form-group grid">
+                <label class="checkbox-label">
+                    <input type="checkbox" class="checkbox-input" name="position-notification" value="top">
+                    <span class="checkbox-custom"></span>
+                    <span class="checkbox-label-text">Top</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" class="checkbox-input" name="position-notification" value="bottom">
+                    <span class="checkbox-custom"></span>
+                    <span class="checkbox-label-text">Bottom</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" class="checkbox-input" name="position-notification" value="center">
+                    <span class="checkbox-custom"></span>
+                    <span class="checkbox-label-text">Center</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" class="checkbox-input" name="position-notification" value="left">
+                    <span class="checkbox-custom"></span>
+                    <span class="checkbox-label-text">Left</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" class="checkbox-input" name="position-notification" value="right">
+                    <span class="checkbox-custom"></span>
+                    <span class="checkbox-label-text">Right</span>
+                </label>
+            </div>
+            
+
+            <button id="notifyBtn0">Показать custom</button>
+            <button id="notifyBtn1">Показать simple</button>
+            <button id="notifyBtn2">Показать header-body</button>
+            <button id="notifyBtn3">Показать full</button>
+
+            
+        </div>
+        
+    </main>
+
+    <button id="theme-toggle" class="theme-toggle">
+        <span class="theme-toggle-icon">🌓</span>
+    </button>
+
+    <script src="../prism/prism.js"></script>
+    <script>
+        document.getElementById("notifyBtn0").addEventListener("click", function () {
+            // Получаем все чекбоксы
+            const checkboxes = document.querySelectorAll("input[name='position-notification']:checked");
+            
+            // Формируем строку позиции (например, "top left" или "bottom center")
+            let positions = Array.from(checkboxes).map(cb => cb.value).join(" ");
+            
+            // Если позиции не выбраны, ставим дефолтное "bottom right"
+            if (!positions) {
+                positions = "bottom right";
+            }
+
+            // Вызываем уведомление с выбранными позициями
+            showNotification({
+                title: "Custom Notification",
+                message: `Уведомление с кастомным положением: ${positions}`,
+                type: "notification-full",
+                position: positions,
+                timeout: 3000
+            });
+        });
+
+        document.getElementById("notifyBtn1").addEventListener("click", function () {
+            showNotification({
+                title: "Simple Notification",
+                type: "notification-simple",
+                position: "bottom right",
+                timeout: 3000
+            });
+        });
+
+        document.getElementById("notifyBtn2").addEventListener("click", function () {
+            showNotification({
+                title: "Header-Body Notification",
+                message: "Это уведомление с заголовком и текстом.",
+                type: "notification-header-body",
+                position: "bottom right",
+                timeout: 3000,
+                srcImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnIy0Tcy7duh8fB4ZxZLtO1Z9rr5QdEHNeCQ&s",
+            });
+        });
+
+        document.getElementById("notifyBtn3").addEventListener("click", function () {
+            showNotification({
+                title: "Full Notification",
+                message: "Это полное уведомление с заголовком, текстом и футером!",
+                type: "notification-full",
+                position: "bottom right",
+                timeout: 3000,
+                srcImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnIy0Tcy7duh8fB4ZxZLtO1Z9rr5QdEHNeCQ&s",
+                footerButtons: [
+                    {
+                        label: "Написать",
+                        onClick: "alert('You clicked OK!')"
+                    },
+                    {
+                        label: "Отменить",
+                        onClick: "alert('You clicked Cancel!')"
+                    }
+                ]
+            });
+        });
+
+    </script>
+
+    <script src="../js/notification.js"></script>
+    <script src="../js/custom-select.js"></script>
+    <script src="../js/frame.js"></script>
+    <script src="../js/themes.js"></script>
+    <script src="../js/apiv0.js"></script>
+    <script src="../js/popover.js"></script>
+
+    
+</body>
+</html>
