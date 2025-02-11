@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ.api</title>
+    
+    <link rel="stylesheet" href="../style/grid.css">
+    <link rel="stylesheet" href="../style/button.css">
+    <link rel="stylesheet" href="../style/card.css">
+    <link rel="stylesheet" href="../style/drivers.css">
+    <link rel="stylesheet" href="../style/input.css">
+    <link rel="stylesheet" href="../style/form.css">
+    <link rel="stylesheet" href="../style/accordion.css">
+    <link rel="stylesheet" href="../style/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background-color: var(--button-bg);
+            color: var(--button-color);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 9999;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--button-hover);
+        }
+
+        .theme-toggle-icon {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="container grid my-3">
+        <h5 class="col-10">Table</h5>
+        <a href="../index.html" class="col-2">
+            <button class="btn primary w-100">На главную</button>
+        </a>
+    </header>
+    <main class="container">
+        <h5>Accordion Default</h5>
+        <div id="frame">
+            <div class="accordion accordion-default">
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                        Accordion 1
+                    </button>
+                    <div id="collapse1" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                        Accordion 2
+                    </button>
+                    <div id="collapse2" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                        Accordion 3
+                    </button>
+                    <div id="collapse3" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h5 class="mt-5">Accordion Border</h5>
+        <div id="frame">
+            <div class="accordion accordion-border">
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                        Accordion 4
+                    </button>
+                    <div id="collapse4" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">
+                        Accordion 5
+                    </button>
+                    <div id="collapse5" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6">
+                        Accordion 6
+                    </button>
+                    <div id="collapse6" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h5 class="mt-5">Accordion Round</h5>
+        <div id="frame">
+            <div class="accordion accordion-round accordion-color-blue">
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7">
+                        Accordion 7
+                    </button>
+                    <div id="collapse7" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8">
+                        Accordion 8
+                    </button>
+                    <div id="collapse8" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9">
+                        Accordion 9
+                    </button>
+                    <div id="collapse9" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h5 class="mt-5">Accordion Round Item</h5>
+        <div id="frame">
+            <div class="accordion accordion-round-item accordion-color-blue">
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10">
+                        Accordion 10
+                    </button>
+                    <div id="collapse10" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11">
+                        Accordion 11
+                    </button>
+                    <div id="collapse11" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12">
+                        Accordion 12
+                    </button>
+                    <div id="collapse12" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h5 class="mt-5">Accordion Show All</h5>
+        <div id="frame">
+            <div class="accordion accordion-round accordion-color-blue">
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-show="all" data-bs-target="#collapse13">
+                        Accordion 13
+                    </button>
+                    <div id="collapse13" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-show="all" data-bs-target="#collapse14">
+                        Accordion 14
+                    </button>
+                    <div id="collapse14" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-show="all" data-bs-target="#collapse15">
+                        Accordion 15
+                    </button>
+                    <div id="collapse15" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h5 class="mt-5">Accordion Color</h5>
+        <div id="frame">
+            <div class="accordion accordion-color-blue accordion-round-item">
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-show="all" data-bs-target="#collapse16">
+                        Accordion 16
+                    </button>
+                    <div id="collapse16" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion accordion-color-red accordion-round-item">
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-show="all" data-bs-target="#collapse17">
+                        Accordion 17
+                    </button>
+                    <div id="collapse17" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion accordion-color-green accordion-round-item">
+                <div class="accordion-item">
+                    <button class="accordion-btn" type="button" data-bs-toggle="collapse" data-bs-show="all" data-bs-target="#collapse18">
+                        Accordion 18
+                    </button>
+                    <div id="collapse18" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam deserunt tempore laborum quae hic eligendi, quia laboriosam velit rerum architecto!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <button id="theme-toggle" class="theme-toggle">
+        <span class="theme-toggle-icon">🌓</span>
+    </button>
+
+    <script src="../js/accordion.js"></script>
+    <script src="../js/custom-select.js"></script>
+    <script src="../js/frame.js"></script>
+    <script src="../js/themes.js"></script>
+    <script src="../js/apiv0.js"></script>
+
+    <script>
+        const textElement = document.getElementById('animated-text');
+
+        // Функция для добавления текста с задержкой
+        function addText(text, delay) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    textElement.textContent += text;
+                    resolve();
+                }, delay);
+            });
+        }
+
+        // Функция для удаления последнего символа с задержкой
+        function delText(delay) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    textElement.textContent = textElement.textContent.slice(0, -1);
+                    resolve();
+                }, delay);
+            });
+        }
+
+        // Пример использования
+        async function animateText() {
+            await addText("X", 300); // Добавляем "X" с задержкой 300 мс
+            await addText("Y", 300); // Добавляем "Y" с задержкой 300 мс
+            await addText("I", 300); // Добавляем "I" с задержкой 300 мс
+            await delText(500);      // Удаляем последний символ ("I") с задержкой 500 мс
+            await addText("Z", 300); // Добавляем "Z" с задержкой 300 мс
+            await addText(".", 300); // Добавляем "." с задержкой 300 мс
+            await addText("a", 300); // Добавляем "a" с задержкой 300 мс
+            await addText("p", 300); // Добавляем "p" с задержкой 300 мс
+            await addText("i", 300); // Добавляем "i" с задержкой 300 мс
+        }
+
+        // Запуск анимации
+        animateText();
+    </script>
+</body>
+</html>

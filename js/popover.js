@@ -1,56 +1,72 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll("[data-bs-toggle='popover']");
-
-    buttons.forEach(button => {
+    // Инициализация tooltip
+    const tooltipButtons = document.querySelectorAll("[data-bs-toggle='tooltip']");
+    tooltipButtons.forEach(button => {
         button.addEventListener("mouseenter", function () {
-            showPopover(button);
+            showElement(button, "custom-tooltip");
         });
-
         button.addEventListener("mouseleave", function () {
-            hidePopover(button);
+            hideElement(button);
         });
     });
 
-    function showPopover(button) {
-        let popover = document.createElement("div");
-        popover.classList.add("custom-popover");
-        popover.textContent = button.getAttribute("data-bs-content");
+    // Инициализация popover
+    const popoverButtons = document.querySelectorAll("[data-bs-toggle='popover']");
+    popoverButtons.forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.stopPropagation();
+            togglePopover(button);
+        });
+    });
 
-        document.body.appendChild(popover);
+    document.addEventListener("click", function () {
+        document.querySelectorAll(".custom-popover").forEach(popover => popover.remove());
+    });
 
-        const rect = button.getBoundingClientRect();
-        const placement = button.getAttribute("data-bs-placement");
-
-        positionPopover(popover, rect, placement);
-        
-        button._popover = popover; // Сохраняем popover в свойство кнопки
+    function showElement(button, className) {
+        let element = document.createElement("div");
+        element.classList.add(className);
+        element.textContent = button.getAttribute("data-bs-content");
+        document.body.appendChild(element);
+        positionElement(element, button, button.getAttribute("data-bs-placement"));
+        button._element = element;
     }
 
-    function hidePopover(button) {
-        if (button._popover) {
-            button._popover.remove();
-            button._popover = null;
+    function hideElement(button) {
+        if (button._element) {
+            button._element.remove();
+            button._element = null;
         }
     }
 
-    function positionPopover(popover, rect, placement) {
+    function togglePopover(button) {
+        if (button._element) {
+            button._element.remove();
+            button._element = null;
+        } else {
+            showElement(button, "custom-popover");
+        }
+    }
+
+    function positionElement(element, button, placement) {
+        const rect = button.getBoundingClientRect();
         const offset = 10;
         switch (placement) {
             case "top":
-                popover.style.left = `${rect.left + rect.width / 2 - popover.offsetWidth / 2}px`;
-                popover.style.top = `${rect.top - popover.offsetHeight - offset}px`;
+                element.style.left = `${rect.left + rect.width / 2 - element.offsetWidth / 2}px`;
+                element.style.top = `${rect.top - element.offsetHeight - offset}px`;
                 break;
             case "right":
-                popover.style.left = `${rect.right + offset}px`;
-                popover.style.top = `${rect.top + rect.height / 2 - popover.offsetHeight / 2}px`;
+                element.style.left = `${rect.right + offset}px`;
+                element.style.top = `${rect.top + rect.height / 2 - element.offsetHeight / 2}px`;
                 break;
             case "bottom":
-                popover.style.left = `${rect.left + rect.width / 2 - popover.offsetWidth / 2}px`;
-                popover.style.top = `${rect.bottom + offset}px`;
+                element.style.left = `${rect.left + rect.width / 2 - element.offsetWidth / 2}px`;
+                element.style.top = `${rect.bottom + offset}px`;
                 break;
             case "left":
-                popover.style.left = `${rect.left - popover.offsetWidth - offset}px`;
-                popover.style.top = `${rect.top + rect.height / 2 - popover.offsetHeight / 2}px`;
+                element.style.left = `${rect.left - element.offsetWidth - offset}px`;
+                element.style.top = `${rect.top + rect.height / 2 - element.offsetHeight / 2}px`;
                 break;
         }
     }

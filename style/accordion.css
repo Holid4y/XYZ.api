@@ -1,0 +1,132 @@
+/* 🚀 Базовые стили */
+.accordion {
+    border-radius: 0;
+    background: none;
+    padding: 0;
+}
+
+.accordion-btn {
+    width: 100%;
+    padding: 15px 20px;
+    color: white;
+    text-align: left;
+    font-size: 16px;
+    position: relative;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border-radius: 0; /* Без скруглений по умолчанию */
+    background: none;
+    border: none;
+}
+
+.accordion-btn:hover {
+    background-color: #4a6681;
+}
+
+.accordion-btn::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.accordion-btn.active::after {
+    content: '-';
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.accordion-default .accordion-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* 🎨 Border */
+.accordion-border .accordion-btn {
+    border: 1px solid #ccc;
+}
+
+/* 🟢 Скругление (только для кнопок) */
+
+.accordion.accordion-round .accordion-item:first-child .accordion-btn {
+    border-radius: 8px 8px 0 0; /* Верхняя кнопка */
+}
+
+.accordion.accordion-round .accordion-item:last-child .accordion-btn {
+    border-radius: 0 0 8px 8px; /* Нижняя кнопка */
+}
+.accordion.accordion-round .accordion-item:last-child .accordion-btn.active {
+    border-radius: 0px; /* Нижняя кнопка */
+}
+.accordion.accordion-round .accordion-item:last-child .accordion-btn.active + .accordion-collapse {
+    border-radius: 0px 0px 8px 8px; /* Нижняя кнопка */
+}
+
+.accordion.accordion-round .accordion-item .accordion-btn:not(:first-child):not(:last-child) {
+    border-radius: 8px; /* Остальные кнопки */
+}
+
+/* 🟢 Скругление для всех элементов (кнопка + содержимое) */
+.accordion.accordion-round-item .accordion-btn {
+    border-radius: 8px; /* Кнопки */
+}
+
+.accordion.accordion-round-item .accordion-btn.active {
+    border-radius: 8px 8px 0 0; /* Активная кнопка */
+    margin-bottom: 0px;
+}
+
+.accordion-round-item .accordion-collapse {
+    border-bottom-left-radius: 8px; /* Содержимое */
+    border-bottom-right-radius: 8px;
+    margin-bottom: 10px;
+}
+
+
+/* 🌈 Цветные варианты */
+.accordion.accordion-color-blue .accordion-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+.accordion.accordion-color-blue .accordion-btn:hover {
+    background-color: #2980b9;
+}
+
+.accordion.accordion-color-red .accordion-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.accordion.accordion-color-red .accordion-btn:hover {
+    background-color: #c0392b;
+}
+
+.accordion.accordion-color-green .accordion-btn {
+    background-color: #27ae60;
+    color: white;
+}
+
+.accordion.accordion-color-green .accordion-btn:hover {
+    background-color: #219150;
+}
+
+/* 📜 Анимация содержимого */
+.accordion-collapse {
+    background-color: #444444;
+    color: #f8f9fa;
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    transition: height 0.3s ease-out, opacity 0.2s ease-out;
+}
+
+.accordion-collapse.show {
+    height: 100%;
+    opacity: 1;
+}
+
+.accordion-body {
+    padding: 20px;
+}
