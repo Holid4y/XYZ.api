@@ -1,0 +1,51 @@
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #5c5c5c;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #0056b3;
+}
+
+.breadcrumb a.active {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Добавляем разделители */
+.breadcrumb a:not(:last-child)::after {
+    content: attr(data-separator);
+    margin: 0 8px;
+    color: #888;
+}
+
+/* Поддержка старых классов */
+.breadcrumb.arrow a:not(:last-child)::after {
+    content: ">";
+}
+
+.breadcrumb.slash a:not(:last-child)::after {
+    content: "/";
+}
+
+/* Если указан класс */
+.breadcrumb.arrow {
+    --separator: ">";
+}
+
+.breadcrumb.slash {
+    --separator: "/";
+}
+
+/* Убираем разделитель, если всего один элемент */
+.breadcrumb:has(a:only-child) a::after {
+    content: "";
+}
