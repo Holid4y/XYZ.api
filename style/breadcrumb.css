@@ -3,6 +3,7 @@
     align-items: center;
     font-size: 16px;
     font-weight: 500;
+    flex-wrap: wrap;
 }
 
 .breadcrumb a {
@@ -27,6 +28,7 @@
     color: #888;
 }
 
+
 /* Поддержка старых классов */
 .breadcrumb.arrow a:not(:last-child)::after {
     content: ">";
@@ -48,4 +50,53 @@
 /* Убираем разделитель, если всего один элемент */
 .breadcrumb:has(a:only-child) a::after {
     content: "";
+}
+
+.breadcrumb-separator{
+    margin-right: 15px;
+}
+
+
+
+.breadcrumb-bg {
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    height: 50px;
+}
+.breadcrumb-bg a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #333;
+    height: 100%;
+    position: relative; /* Нужно для псевдоэлементов */
+    background-color: transparent;
+    transition: background 0.3s ease;
+}
+
+/* .breadcrumb-bg a:hover {
+    background: #e9ecef;
+}
+
+.breadcrumb-bg a:hover + .arrow-box{
+    background: #e9ecef;
+} */
+
+.breadcrumb-bg a.active {
+    color: white;
+}
+
+.arrow-box {
+    width: 50px;
+    height: 100%;
+    background: #ccc;
+    clip-path: polygon(70% 0%, 75% 0%, 100% 50%, 75% 100%, 70% 100%, 96% 50%);
+}
+
+
+/* Убираем границу между блоками, делая эффект слитности */
+.breadcrumb-bg a:not(:first-child) {
+    border-left: none;
 }
