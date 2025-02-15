@@ -69,9 +69,8 @@
   }
 .options .option.active {
     flex-grow: 10000;
-    transform: scale(1);
     width: 100%;
-    margin: 0px;
+    margin: 10px;
     border-radius: 40px;
     background-size: cover;
     /*&:active {
@@ -151,3 +150,72 @@
 .options .option .label .info .sub {
     transition-delay: 0.1s;
   }
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+}
+.carousel-track-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 10px;
+}
+.carousel-track {
+    display: flex;
+    height: 350px;
+    transition: transform 0.3s ease-in-out;
+    cursor: grab;
+}
+.carousel-track.hidden {
+  opacity: 0;
+}
+
+.carousel-track.visible {
+  opacity: 1;
+}
+.carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 calc(100% / var(--visible-items));
+    color: black;
+    text-align: center;
+    background: #f0f0f0;
+}
+.carousel-item img{
+  width: 100%;
+}
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 0%;
+    height: 100%;
+    color: #ccc;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    z-index: 10;
+}
+.carousel-prev { left: 0px; }
+.carousel-next { right: 0px; }
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.carousel-indicator {
+    width: 20px;
+    height: 10px;
+    border: none;
+    background-color: #333;
+    border-radius: 4px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.carousel-indicator.active {
+  background: #ccc;
+}
