@@ -104,26 +104,35 @@ class Carousel {
     }
 
     setupDrag() {
+        // Обработчики для мыши
         this.track.addEventListener('mousedown', this.dragStart.bind(this));
         window.addEventListener('mousemove', this.dragMove.bind(this));
         window.addEventListener('mouseup', this.dragEnd.bind(this));
         this.track.addEventListener('mouseleave', this.dragEnd.bind(this));
+    
+        // Обработчики для touch-устройств
+        this.track.addEventListener('touchstart', this.dragStart.bind(this), { passive: true });
+        window.addEventListener('touchmove', this.dragMove.bind(this), { passive: true });
+        window.addEventListener('touchend', this.dragEnd.bind(this));
     }
 
     dragStart(e) {
+        if (e.type.includes('touch')) {
+            e.preventDefault(); // Отключаем стандартное поведение для touch-событий
+        }
         console.log('Drag started');
         this.isDragging = true;
-        this.startPos = e.clientX;
+        this.startPos = this.getClientX(e); // Получаем начальную позицию
         this.track.style.cursor = 'grabbing';
     }
     
     dragMove(e) {
         if (!this.isDragging) return;
         console.log('Dragging');
-        const currentPosition = e.clientX;
+        const currentPosition = this.getClientX(e); // Получаем текущую позицию
         const diff = currentPosition - this.startPos;
-        
-        if (Math.abs(diff) > 100) {
+    
+        if (Math.abs(diff) > 10) {
             if (diff > 0) {
                 this.move('prev');
             } else {
@@ -137,6 +146,11 @@ class Carousel {
         console.log('Drag ended');
         this.isDragging = false;
         this.track.style.cursor = 'grab';
+    }
+    
+    // Вспомогательный метод для получения координаты X
+    getClientX(e) {
+        return e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
     }
 
     move(direction) {
