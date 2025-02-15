@@ -1,0 +1,120 @@
+<main class="container">
+    <div class="card mb-3">
+        <div class="card-body">
+            <h6>Настройки карусели</h6>
+            <div class="grid gap-2">
+                <div class="col-4">
+                    <label class="d-flex align-items-center gap-2">
+                        <input type="checkbox" id="visible-toggle" checked>
+                        <span>Видимые элементы:</span>
+                        <input type="number" id="visible-input" value="2" min="1" class="form-control" style="width: 70px">
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label class="d-flex align-items-center gap-2">
+                        <input type="checkbox" id="scroll-toggle" checked>
+                        <span>Прокрутка элементов:</span>
+                        <input type="number" id="scroll-input" value="1" min="1" class="form-control" style="width: 70px">
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label class="d-flex align-items-center gap-2">
+                        <input type="checkbox" id="gap-toggle" checked>
+                        <span>Отступ (px):</span>
+                        <input type="number" id="gap-input" value="10" min="0" class="form-control" style="width: 70px">
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label class="d-flex align-items-center gap-2">
+                        <input type="checkbox" id="infinity-toggle">
+                        <span>Бесконечная прокрутка</span>
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label class="d-flex align-items-center gap-2">
+                        <input type="checkbox" id="auto-toggle">
+                        <span>Автопрокрутка</span>
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label class="d-flex align-items-center gap-2">
+                        <span>Интервал (мс):</span>
+                        <input type="number" id="time-input" value="5000" min="1000" step="1000" class="form-control" style="width: 100px" disabled>
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label class="d-flex align-items-center gap-2">
+                        <input type="checkbox" id="drag-toggle" checked>
+                        <span>Перетаскивание мышью</span>
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label class="d-flex align-items-center gap-2">
+                        <input type="checkbox" id="indicator-toggle" checked>
+                        <span>Индикаторы</span>
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label class="d-flex align-items-center gap-2">
+                        <input type="checkbox" id="round-toggle">
+                        <span>Скругленные углы</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    // ... existing carousel code ...
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.querySelector('.carousel');
+    let carouselInstance;
+
+    function updateCarousel() {
+        // Удаляем старый экземпляр карусели
+        if (carouselInstance) {
+            // Удаляем индикаторы если они есть
+            const indicators = carousel.querySelector('.carousel-indicators');
+            if (indicators) indicators.remove();
+        }
+
+        // Обновляем атрибуты
+        carousel.setAttribute('carusel-bs-visible', document.getElementById('visible-toggle').checked ? document.getElementById('visible-input').value : '1');
+        carousel.setAttribute('carusel-bs-scroll', document.getElementById('scroll-toggle').checked ? document.getElementById('scroll-input').value : '1');
+        carousel.setAttribute('carusel-bs-gap', document.getElementById('gap-toggle').checked ? document.getElementById('gap-input').value : '0');
+        carousel.setAttribute('carusel-bs-infinity', document.getElementById('infinity-toggle').checked);
+        carousel.setAttribute('carusel-bs-auto', document.getElementById('auto-toggle').checked);
+        carousel.setAttribute('carusel-bs-time', document.getElementById('time-input').value);
+        carousel.setAttribute('carusel-bs-mouse-drag', document.getElementById('drag-toggle').checked);
+        carousel.setAttribute('carusel-bs-indicator', document.getElementById('indicator-toggle').checked);
+
+        // Обновляем скругление для элементов
+        const items = carousel.querySelectorAll('.carousel-item');
+        items.forEach(item => {
+            if (document.getElementById('round-toggle').checked) {
+                item.classList.add('rounded-12');
+            } else {
+                item.classList.remove('rounded-12');
+            }
+        });
+
+        // Создаем новый экземпляр карусели
+        carouselInstance = new Carousel(carousel);
+    }
+
+    // Привязываем обработчики событий
+    document.querySelectorAll('input[type="checkbox"], input[type="number"]').forEach(input => {
+        input.addEventListener('change', updateCarousel);
+    });
+
+    // Специальная обработка для автопрокрутки
+    document.getElementById('auto-toggle').addEventListener('change', function() {
+        document.getElementById('time-input').disabled = !this.checked;
+    });
+
+    // Инициализация карусели
+    updateCarousel();
+});
+</script>

@@ -21,6 +21,7 @@ class Carousel {
         this.scrollTime = parseInt(element.getAttribute('carusel-bs-time')) || 5000;
         this.mouseDrag = element.getAttribute('carusel-bs-mouse-drag') === 'true';
         this.showIndicators = element.getAttribute('carusel-bs-indicator') === 'true';
+        this.gap = parseInt(element.getAttribute('carusel-bs-gap')) || 0;
 
         // Состояние карусели
         this.currentIndex = 0;
@@ -61,10 +62,14 @@ class Carousel {
     }
 
     setupStyles() {
-        // Устанавливаем ширину элементов
-        const itemWidth = 100 / this.visibleItems;
-        this.items.forEach(item => {
+        // Устанавливаем ширину элементов с учетом промежутков
+        const totalGapWidth = this.gap * (this.visibleItems - 1);
+        const itemWidth = (100 - (totalGapWidth / this.carousel.offsetWidth * 100)) / this.visibleItems;
+        
+        this.items.forEach((item, index) => {
             item.style.flex = `0 0 ${itemWidth}%`;
+            // Добавляем отступ справа для всех элементов кроме последнего
+            item.style.marginRight = index < this.items.length - 1 ? `${this.gap}px` : '0';
         });
     }
 
@@ -140,8 +145,11 @@ class Carousel {
     }
 
     updateCarousel() {
-        const offset = -(this.currentIndex * (100 / this.visibleItems) * this.scrollItems);
-        this.track.style.transform = `translateX(${offset}%)`;
+        const itemWidth = this.carousel.offsetWidth / this.visibleItems;
+        const gapOffset = this.currentIndex * this.gap * this.scrollItems;
+        const percentageOffset = this.currentIndex * (100 / this.visibleItems) * this.scrollItems;
+        
+        this.track.style.transform = `translateX(calc(-${percentageOffset}% - ${gapOffset}px))`;
         this.updateButtonStates();
         if (this.showIndicators) {
             this.updateIndicators();
