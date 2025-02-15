@@ -1,172 +1,22 @@
-.options {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    overflow: hidden;
-    width: 100%;
-    height: 400px;
-}
-@media screen and (max-width: 718px) {
-    .options {
-      min-width: calc(600px - 80);
-    }
-    .options .option:nth-child(5) {
-      display: none;
-    }
-}
-@media screen and (max-width: 638px) {
-    .options {
-      min-width: calc(600px - 160);
-    }
-    .options .option:nth-child(4) {
-      display: none;
-    }
-}
-@media screen and (max-width: 558px) {
-    .options {
-      min-width: calc(600px - 240);
-    }
-    .options .option:nth-child(3) {
-      display: none;
-    }
-}
-@media screen and (max-width: 478px) {
-    .options {
-      min-width: calc(600px - 320);
-    }
-    .options .option:nth-child(2) {
-      display: none;
-    }
-}
-.options .option {
-    position: relative;
-    overflow: hidden;
-    width: 10%;
-    margin: 10px;
-    background: var(--optionBackground, var(--defaultBackground, #E6E9ED));
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
-}
-.options .option:nth-child(1) {
-    --defaultBackground:#ED5565;
-  }
-.options .option:nth-child(2) {
-    --defaultBackground:#FC6E51;
-  }
-.options .option:nth-child(3) {
-    --defaultBackground:#FFCE54;
-  }
-.options .option:nth-child(4) {
-    --defaultBackground:#2ECC71;
-  }
-.options .option:nth-child(5) {
-    --defaultBackground:#5D9CEC;
-  }
-.options .option:nth-child(6) {
-    --defaultBackground:#AC92EC;
-  }
-.options .option.active {
-    flex-grow: 10000;
-    width: 100%;
-    margin: 10px;
-    border-radius: 40px;
-    background-size: cover;
-    /*&:active {
-       transform:scale(0.9);
-    }*/
-  }
-.options .option.active .shadow {
-    box-shadow: inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
-  }
-.options .option.active .label {
-    bottom: 20px;
-    left: 20px;
-  }
-.options .option.active .label .info > div {
-    left: 0px;
-    opacity: 1;
-  }
-.options .option:not(.active) {
-    flex-grow: 1;
-    border-radius: 30px;
-  }
-.options .option:not(.active) .shadow {
-    bottom: -40px;
-    box-shadow: inset 0 -120px 0px -120px black, inset 0 -120px 0px -100px black;
-  }
-.options .option:not(.active) .label {
-    bottom: 10px;
-    left: 10px;
-  }
-.options .option:not(.active) .label .info > div {
-    left: 20px;
-    opacity: 0;
-  }
-.options .option .shadow {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    height: 120px;
-    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
-  }
-.options .option .label {
-    display: flex;
-    position: absolute;
-    right: 0px;
-    height: 40px;
-    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
-  }
-.options .option .label .icon {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    min-width: 40px;
-    max-width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    background-color: white;
-    color: var(--defaultBackground);
-  }
-.options .option .label .info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 10px;
-    color: white;
-    white-space: pre;
-  }
-.options .option .label .info > div {
-    position: relative;
-    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity 0.5s ease-out;
-  }
-.options .option .label .info .main {
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-.options .option .label .info .sub {
-    transition-delay: 0.1s;
-  }
-
 .carousel {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
+
 .carousel-track-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 10px;
 }
+
 .carousel-track {
-    display: flex;
-    height: 350px;
-    transition: transform 0.3s ease-in-out;
-    cursor: grab;
+  display: flex;
+  height: 350px;
+  transition: transform 0.3s ease-in-out;
+  cursor: grab;
 }
+
 .carousel-track.hidden {
   opacity: 0;
 }
@@ -174,31 +24,67 @@
 .carousel-track.visible {
   opacity: 1;
 }
+
 .carousel-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 0 0 calc(100% / var(--visible-items));
-    color: black;
-    text-align: center;
-    background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex: 0 0
+    calc(
+      (100% - (var(--visible-items) - 1) * var(--gap)) / var(--visible-items)
+    );
+  color: #ccc;
+  text-align: center;
+  background: #f0f0f0;
+  margin-right: var(--gap);
+  overflow: hidden;
 }
-.carousel-item img{
-  width: 100%;
+
+.carousel-item-info {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  font-size: 1rem;
+  font-weight: bolder;
+  text-shadow: #333 1px 1px 1px;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
-.carousel-prev, .carousel-next {
-    position: absolute;
-    top: 0%;
-    height: 100%;
-    color: #ccc;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    cursor: pointer;
-    padding: 10px 20px;
-    z-index: 10;
+
+.carousel-item:last-child {
+  margin-right: 0;
 }
-.carousel-prev { left: 0px; }
-.carousel-next { right: 0px; }
+
+.carousel-item img {
+  border-radius: inherit; /* Наследуем скругление от родителя */
+  width: 100%; /* Убедимся, что изображение занимает всю ширину */
+  height: auto; /* Сохраняем пропорции изображения */
+  display: block; /* Убираем лишние отступы */
+  z-index: 0;
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 0%;
+  height: 100%;
+  color: #ccc;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  z-index: 10;
+}
+
+.carousel-prev {
+  left: 0px;
+}
+
+.carousel-next {
+  right: 0px;
+}
+
 .carousel-indicators {
   display: flex;
   justify-content: center;
@@ -207,15 +93,73 @@
 }
 
 .carousel-indicator {
-    width: 20px;
-    height: 10px;
-    border: none;
-    background-color: #333;
-    border-radius: 4px;
-    margin: 0 5px;
-    cursor: pointer;
+  width: 20px;
+  height: 10px;
+  border: none;
+  background-color: #333;
+  border-radius: 4px;
+  margin: 0 5px;
+  cursor: pointer;
 }
 
 .carousel-indicator.active {
   background: #ccc;
+}
+
+/* Добавьте эти стили в ваш carousel.css файл */
+/* Стили для карусели с ролью card-carusel */
+[carusel-bs-role="card-carusel"] .carousel-track-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+[carusel-bs-role="card-carusel"] .carousel-track {
+  display: flex;
+  gap: 10px;
+  transition: all 0.5s ease;
+}
+
+[carusel-bs-role="card-carusel"] .carousel-item {
+  flex: 0 0 5%;
+  height: 350px; /* или другая нужная высота */
+  background-color: #333; /* или другой цвет */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+[carusel-bs-role="card-carusel"] .carousel-item img {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+}
+
+[carusel-bs-role="card-carusel"] .carousel-item .carousel-item-info {
+  opacity: 0;
+  visibility: hidden;
+}
+
+[carusel-bs-role="card-carusel"] .carousel-item.active-card-carusel {
+  flex: 1;
+}
+
+[carusel-bs-role="card-carusel"]
+  .carousel-item.active-card-carusel
+  .carousel-item-info {
+  opacity: 1;
+  visibility: visible;
+}
+
+[carusel-bs-role="card-carusel"] .carousel-item:not(.active-card-carusel) {
+  flex: 0 0 7%; /* Неактивные элементы занимают по 10% */
+  opacity: 0.7;
+}
+
+[carusel-bs-role="card-carusel"]
+  .carousel-item:not(.active-card-carusel):hover {
+  opacity: 0.9;
 }

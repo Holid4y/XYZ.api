@@ -491,6 +491,7 @@ body {
 .text-start{ text-align: start;}
 
 .rounded-50{ border-radius: 50%; }
+.rounded-40{ border-radius: 40px; }
 .rounded-30{ border-radius: 30px; }
 .rounded-20{ border-radius: 20px; }
 .rounded-16{ border-radius: 16px;}

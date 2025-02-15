@@ -23,6 +23,13 @@ class Carousel {
         this.showIndicators = element.getAttribute('carusel-bs-indicator') === 'true';
         this.gap = parseInt(element.getAttribute('carusel-bs-gap')) || 0;
 
+        // Добавляем проверку на тип карусели
+        this.isCardCarousel = element.getAttribute('carusel-bs-role') === 'card-carusel';
+        
+        if (this.isCardCarousel) {
+            this.setupCardCarousel();
+        }
+
         // Состояние карусели
         this.currentIndex = 0;
         this.maxIndex = Math.ceil((this.items.length - this.visibleItems) / this.scrollItems);
@@ -30,6 +37,10 @@ class Carousel {
         this.startPos = 0;
         this.currentTranslate = 0;
         this.prevTranslate = 0;
+
+        // Устанавливаем CSS переменные
+        this.carousel.style.setProperty('--visible-items', this.visibleItems);
+        this.carousel.style.setProperty('--gap', `${this.gap}px`);
 
         this.init();
     }
@@ -44,13 +55,20 @@ class Carousel {
         }
 
         // Обработчики кнопок
-        this.prevButton.addEventListener('click', () => this.move('prev'));
-        this.nextButton.addEventListener('click', () => this.move('next'));
+        if (this.prevButton) {
+            this.prevButton.addEventListener('click', () => this.move('prev'));
+        }
+        if (this.nextButton) {
+            this.nextButton.addEventListener('click', () => this.move('next'));
+        }
 
         // Настройка перетаскивания мышью
         if (this.mouseDrag) {
             this.setupDrag();
+            
         }
+        console.log('Mouse drag enabled:', this.mouseDrag);
+        
 
         // Автопрокрутка
         if (this.autoScroll) {
@@ -58,17 +76,13 @@ class Carousel {
         }
 
         // Начальное обновление состояния
-        this.updateButtonStates();
+        // this.updateButtonStates();
     }
 
     setupStyles() {
         // Устанавливаем ширину элементов с учетом промежутков
-        const totalGapWidth = this.gap * (this.visibleItems - 1);
-        const itemWidth = (100 - (totalGapWidth / this.carousel.offsetWidth * 100)) / this.visibleItems;
-        
         this.items.forEach((item, index) => {
-            item.style.flex = `0 0 ${itemWidth}%`;
-            // Добавляем отступ справа для всех элементов кроме последнего
+            // Убираем отступ у последнего элемента
             item.style.marginRight = index < this.items.length - 1 ? `${this.gap}px` : '0';
         });
     }
@@ -97,18 +111,19 @@ class Carousel {
     }
 
     dragStart(e) {
+        console.log('Drag started');
         this.isDragging = true;
         this.startPos = e.clientX;
         this.track.style.cursor = 'grabbing';
     }
-
+    
     dragMove(e) {
         if (!this.isDragging) return;
-        
+        console.log('Dragging');
         const currentPosition = e.clientX;
         const diff = currentPosition - this.startPos;
         
-        if (Math.abs(diff) > 100) { // Минимальное расстояние для свайпа
+        if (Math.abs(diff) > 10) {
             if (diff > 0) {
                 this.move('prev');
             } else {
@@ -117,8 +132,9 @@ class Carousel {
             this.dragEnd();
         }
     }
-
+    
     dragEnd() {
+        console.log('Drag ended');
         this.isDragging = false;
         this.track.style.cursor = 'grab';
     }
@@ -148,8 +164,18 @@ class Carousel {
         const itemWidth = this.carousel.offsetWidth / this.visibleItems;
         const gapOffset = this.currentIndex * this.gap * this.scrollItems;
         const percentageOffset = this.currentIndex * (100 / this.visibleItems) * this.scrollItems;
-        
-        this.track.style.transform = `translateX(calc(-${percentageOffset}% - ${gapOffset}px))`;
+
+        // Корректируем отступ для последних элементов
+        if (this.currentIndex >= this.maxIndex) {
+            const remainingItems = this.items.length - this.currentIndex * this.scrollItems;
+            if (remainingItems < this.visibleItems) {
+                const extraGap = (this.visibleItems - remainingItems) * this.gap;
+                this.track.style.transform = `translateX(calc(-${percentageOffset}% - ${gapOffset - extraGap}px))`;
+                return;
+            }
+        }
+
+        this.track.style.transform = `translateX(calc(-${percentageOffset}% - ${gapOffset / 2}px))`;
         this.updateButtonStates();
         if (this.showIndicators) {
             this.updateIndicators();
@@ -176,6 +202,25 @@ class Carousel {
             }
         }, this.scrollTime);
     }
+
+    setupCardCarousel() {
+        // Устанавливаем начальные классы
+        this.items[0].classList.add('active-card-carusel');
+        
+        // Добавляем обработчики кликов на элементы
+        this.items.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                if (!item.classList.contains('active-card-carusel')) {
+                    // Убираем активный класс у текущего элемента
+                    const currentActive = this.track.querySelector('.active-card-carusel');
+                    currentActive.classList.remove('active-card-carusel');
+                    
+                    // Добавляем активный класс к кликнутому элементу
+                    item.classList.add('active-card-carusel');
+                }
+            });
+        });
+    }
 }
 
 // Инициализация всех каруселей на странице
@@ -183,4 +228,3 @@ document.addEventListener('DOMContentLoaded', () => {
     const carousels = document.querySelectorAll('.carousel');
     carousels.forEach(carousel => new Carousel(carousel));
 });
-
