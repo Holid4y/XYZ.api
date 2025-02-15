@@ -123,7 +123,7 @@ class Carousel {
         const currentPosition = e.clientX;
         const diff = currentPosition - this.startPos;
         
-        if (Math.abs(diff) > 10) {
+        if (Math.abs(diff) > 100) {
             if (diff > 0) {
                 this.move('prev');
             } else {
