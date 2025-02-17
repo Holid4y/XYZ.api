@@ -69,14 +69,9 @@
 
 /* Hover effects */
 .btn:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
+    /* background-color: var(--btn-hover-bg); */
 }
 
-/* Active state */
-.btn:active {
-    transform: translateY(1px);
-}
 
 /* Disabled state */
 .btn:disabled,

@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XYZ.api</title>
-
+    
     <link rel="stylesheet" href="../style/grid.css">
     <link rel="stylesheet" href="../style/button.css">
     <link rel="stylesheet" href="../style/card.css">
     <link rel="stylesheet" href="../style/drivers.css">
     <link rel="stylesheet" href="../style/input.css">
     <link rel="stylesheet" href="../style/form.css">
+    <link rel="stylesheet" href="../style/spinner.css">
+    <link rel="stylesheet" href="../style/popover.css">
+    <link rel="stylesheet" href="../style/notification.css">
+    <link rel="stylesheet" href="../style/breadcrumb.css">
+    <link rel="stylesheet" href="../style/progress.css">
+    <link rel="stylesheet" href="../style/carousel.css">
+    <link rel="stylesheet" href="../style/badge.css">
     <link rel="stylesheet" href="../style/style.css">
     
     <style>
@@ -37,58 +44,24 @@
             font-size: 1.5rem;
         }
     </style>
+
+    <link rel="stylesheet" href="../prism/prism.css">
+    
 </head>
 <body>
     <header class="container grid my-3">
-        <h5 class="col-6">Drivers</h5>
+        <h5 class="col-6">Date | Time | Color</h5>
         <a href="../index.html" class="col-6">
             <button class="btn primary w-100">На главную</button>
-        </a>  
+        </a> 
     </header>
     <main class="container">
-        <div id="frame" >
-            <div class="drivers">
-                <span>Пример с текстом</span>
-            </div>
-        </div>
+        <div class="grid my-5">
+            <input type="date" class="input-form">
 
-        <div id="frame" class="my-4">
-            <div class="drivers left">
-                <span>Пример с текстом слева</span>
-            </div>
-        </div>
-
-        <div id="frame">
-            <div class="drivers right">
-                <span>Пример с текстом справа</span>
-            </div>
-        </div>
-
-        <div id="frame" class="my-4">
-            <div class="drivers">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <div id="frame" class="my-4">
-            <div class="drivers">
-                <button class="btn-driver">Пример с кнопкой</button>
-            </div>
-        </div>
-
-        <div id="frame" class="my-4">
-            <div class="drivers">
-                <div class="group-btn-driver">
-                    <button class="btn-drivers">A</button>
-                    <button class="btn-drivers">B</button>
-                    <button class="btn-drivers">C</button>
-                    <button class="btn-drivers">D</button>
-                </div>
-            </div>
+            <input type="time" class="input-form">
+    
+            <input type="color" class="input-form">
         </div>
     </main>
 
@@ -96,9 +69,18 @@
         <span class="theme-toggle-icon">🌓</span>
     </button>
 
+    <script src="../prism/prism.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/carousel.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/breadcrumb.js"></script>
+    <script src="../js/notification.js"></script>
     <script src="../js/custom-select.js"></script>
     <script src="../js/frame.js"></script>
     <script src="../js/themes.js"></script>
     <script src="../js/apiv0.js"></script>
+    <script src="../js/popover.js"></script>
+
+    
 </body>
 </html>

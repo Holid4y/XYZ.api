@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ.api</title>
+    
+    <link rel="stylesheet" href="../style/grid.css">
+    <link rel="stylesheet" href="../style/button.css">
+    <link rel="stylesheet" href="../style/card.css">
+    <link rel="stylesheet" href="../style/drivers.css">
+    <link rel="stylesheet" href="../style/input.css">
+    <link rel="stylesheet" href="../style/form.css">
+    <link rel="stylesheet" href="../style/spinner.css">
+    <link rel="stylesheet" href="../style/popover.css">
+    <link rel="stylesheet" href="../style/notification.css">
+    <link rel="stylesheet" href="../style/breadcrumb.css">
+    <link rel="stylesheet" href="../style/progress.css">
+    <link rel="stylesheet" href="../style/carousel.css">
+    <link rel="stylesheet" href="../style/badge.css">
+    <link rel="stylesheet" href="../style/style.css">
+    
+    <style>
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background-color: var(--button-bg);
+            color: var(--button-color);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 9999;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--button-hover);
+        }
+
+        .theme-toggle-icon {
+            font-size: 1.5rem;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../prism/prism.css">
+    
+</head>
+<body>
+    <header class="container grid my-3">
+        <h5 class="col-6">Carousel</h5>
+        <a href="../index.html" class="col-6">
+            <button class="btn primary w-100">На главную</button>
+        </a> 
+    </header>
+    <main class="container">
+        <h1 class="mb-2">Badge <span class="badge">badge</span></h1>
+        <h2 class="mb-2">Badge <span class="badge">badge</span></h2>
+        <h3 class="mb-2">Badge <span class="badge">badge</span></h3>
+        <h4 class="mb-2">Badge <span class="badge">badge</span></h4>
+        <h5 class="mb-2">Badge <span class="badge">badge</span></h5>
+        <h6 class="mb-2">Badge <span class="badge">badge</span></h6>
+
+        <div class="grid my-5">
+            <button class="btn primary col-6 col-md-4 col-lg-3">
+                Button <span class="badge">badge</span>
+            </button>
+    
+            <button class="btn primary col-6 col-md-4 col-lg-3">
+                Button <span class="badge">4</span>
+            </button>
+    
+            <button class="btn primary col-6 col-md-4 col-lg-3 position-relative">
+                Button <span class="badge rounded-10 position-absolute top-0 start-100 translate-middle bg-danger">badge</span>
+            </button>
+    
+            <button class="btn primary col-6 col-md-4 col-lg-3 position-relative">
+                Button <span class="badge rounded-50 position-absolute top-0 start-100 translate-middle bg-danger border"></span>
+            </button>
+        </div>
+        
+        
+        
+        
+    </main>
+
+    <button id="theme-toggle" class="theme-toggle">
+        <span class="theme-toggle-icon">🌓</span>
+    </button>
+
+    <script src="../prism/prism.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/carousel.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/breadcrumb.js"></script>
+    <script src="../js/notification.js"></script>
+    <script src="../js/custom-select.js"></script>
+    <script src="../js/frame.js"></script>
+    <script src="../js/themes.js"></script>
+    <script src="../js/apiv0.js"></script>
+    <script src="../js/popover.js"></script>
+
+    
+</body>
+</html>

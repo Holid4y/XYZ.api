@@ -36,7 +36,6 @@
     );
   color: #ccc;
   text-align: center;
-  background: #f0f0f0;
   margin-right: var(--gap);
   overflow: hidden;
 }
@@ -58,12 +57,13 @@
 
 .carousel-item img {
   border-radius: inherit; /* Наследуем скругление от родителя */
-  width: 100%; /* Убедимся, что изображение занимает всю ширину */
   height: 100%; /* Сохраняем пропорции изображения */
+  width: 100%;
   object-fit: cover;
   display: block; /* Убираем лишние отступы */
   z-index: 0;
   pointer-events: none;
+  backdrop-filter: blur(10px);
 }
 
 .carousel-prev,
@@ -72,11 +72,22 @@
   top: 0%;
   height: 100%;
   color: #ccc;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.1);
   border: none;
   cursor: pointer;
   padding: 10px 20px;
   z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.carousel-prev:active,
+.carousel-next:active {
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .carousel-prev {
@@ -122,9 +133,9 @@
 }
 
 [carusel-bs-role="card-carusel"] .carousel-item {
-  flex: 0 0 5%;
+  flex: 0 0 7%;
   height: 350px; /* или другая нужная высота */
-  background-color: #333; /* или другой цвет */
+  background-color: #252530; /* или другой цвет */
   color: white;
   display: flex;
   align-items: center;
@@ -134,8 +145,8 @@
   cursor: pointer;
 }
 
-[carusel-bs-role="card-carusel"] .carousel-item img {
-  height: 350px;
+[carusel-bs-role="card-carusel"] .carousel-item img,
+[carusel-bs-role="card-carusel"] .carousel-item svg {
   width: 100%;
   object-fit: cover;
 }
@@ -157,7 +168,7 @@
 }
 
 [carusel-bs-role="card-carusel"] .carousel-item:not(.active-card-carusel) {
-  flex: 0 0 7%; /* Неактивные элементы занимают по 10% */
+  flex: 0 0 7%; /* Неактивные элементы занимают по 7% */
   opacity: 0.7;
 }
 
