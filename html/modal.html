@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../style/drivers.css">
     <link rel="stylesheet" href="../style/input.css">
     <link rel="stylesheet" href="../style/form.css">
+    <link rel="stylesheet" href="../style/breadcrumb.css">
     <link rel="stylesheet" href="../style/modal.css">
     <link rel="stylesheet" href="../style/style.css">
 
@@ -40,11 +41,18 @@
     </style>
 </head>
 <body>
-    <header class="container grid my-3">
-        <h5 class="col-6">Modal</h5>
-        <a href="../index.html" class="col-6">
-            <button class="btn primary w-100">На главную</button>
-        </a>
+    <header class="container my-3">
+        <div class="bg-dark d-flex align-center justify-start py-3 px-4 rounded-12 w-100">
+            <div class="breadcrumb">
+                <a href="../index.html" class="active">Главная</a>
+                <span class="breadcrumb-separator">
+                    <svg width="9" height="16" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4491 7.68025C10.8018 8.03346 11 8.51227 11 9.01148C11 9.5107 10.8018 9.9895 10.4491 10.3427L3.34579 17.4485C2.9924 17.8017 2.51315 18.0001 2.01349 18C1.76608 17.9999 1.5211 17.9512 1.29255 17.8564C1.064 17.7617 0.856341 17.6229 0.681438 17.4479C0.506536 17.2729 0.367811 17.0652 0.273186 16.8366C0.17856 16.608 0.129887 16.363 0.129945 16.1156C0.130004 15.8682 0.178793 15.6232 0.273526 15.3946C0.368258 15.1661 0.507081 14.9584 0.682066 14.7835L6.45285 9.01148L0.68081 3.23944C0.500805 3.06575 0.357195 2.85795 0.258358 2.62816C0.159522 2.39838 0.107441 2.15121 0.10515 1.90108C0.102859 1.65094 0.150407 1.40286 0.245018 1.1713C0.339629 0.939743 0.479408 0.729345 0.656201 0.552385C0.832995 0.375425 1.04326 0.235447 1.27473 0.140617C1.5062 0.0457878 1.75424 -0.00199127 2.00437 6.29425e-05C2.2545 0.00211716 2.50172 0.0539665 2.7316 0.152586C2.96148 0.251205 3.16942 0.394619 3.34328 0.574459L10.4516 7.68025H10.4491Z" fill="#999"/>
+                    </svg>
+                </span>
+                <a href="#">Modal</a>
+            </div>
+        </div>
     </header>
 
     <main class="container">
