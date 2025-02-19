@@ -37,7 +37,30 @@
     font-size: 13px;
 }
 
+.info-display {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.info-display.visible {
+    opacity: 1;
+}
+
+.info-value {
+    min-width: 40px;
+}
+
+.time-info, .volume-info {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
 .video-info-time, .video-info-volume {
+    min-width: 40px;
     display: none;
 }
 
@@ -312,8 +335,8 @@
 .video-loading .spinner {
     width: 40px;
     height: 40px;
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #3498db;
+    border: 4px solid #2E2E2E;
+    border-top: 4px solid #49E2C1;
     border-radius: 50%;
     margin-right: 10px;
     animation: spin 1s linear infinite;
@@ -350,4 +373,22 @@
 }
 .preview-play:hover {
     transform: scale(1.1);
+}
+
+/* Стили для нативного видео плеера на мобильных устройствах */
+@media (max-width: 768px) {
+    .video-player {
+        width: 100%;
+        height: auto;
+        max-height: 100vh;
+    }
+}
+
+/* Скрываем кастомные контролы на мобильных устройствах */
+@media (max-width: 768px) {
+    .controls-top,
+    .controls-bottom,
+    .video-info-block {
+        display: none !important;
+    }
 }
