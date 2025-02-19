@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Объявляем общие переменные в начале
+    const videoUrlInput = document.getElementById('video-url');
+    const loadVideoButton = document.getElementById('load-video');
+    const videoLoading = document.querySelector('.video-loading');
+
     // Функция определения мобильного устройства
     const isMobileDevice = () => {
         return (
@@ -13,18 +18,52 @@ document.addEventListener('DOMContentLoaded', () => {
         const videoPlayer = document.querySelector('.video-player');
         
         if (videoContainer && videoPlayer) {
-            // Сохраняем текущий src видео
-            const videoSrc = videoPlayer.src;
-            
             // Создаем новый video элемент с нативными контролами
             const nativeVideo = document.createElement('video');
-            nativeVideo.src = videoSrc;
             nativeVideo.controls = true;
             nativeVideo.playsInline = true;
             nativeVideo.className = 'video-player';
             
             // Заменяем контейнер с кастомным плеером на нативное видео
             videoContainer.parentNode.replaceChild(nativeVideo, videoContainer);
+
+            // Добавляем обработчик для кнопки загрузки
+            loadVideoButton.addEventListener('click', () => {
+                const url = videoUrlInput.value.trim();
+                if (url) {
+                    // Показываем индикатор загрузки
+                    if (videoLoading) {
+                        videoLoading.style.display = 'flex';
+                    }
+                    
+                    // Загружаем новое видео
+                    nativeVideo.src = url;
+                    nativeVideo.load();
+                }
+            });
+
+            // Обработчик окончания загрузки
+            nativeVideo.addEventListener('loadeddata', () => {
+                if (videoLoading) {
+                    videoLoading.style.display = 'none';
+                }
+                nativeVideo.style.opacity = '1';
+            });
+
+            // Обработчик ошибки загрузки
+            nativeVideo.addEventListener('error', () => {
+                if (videoLoading) {
+                    videoLoading.style.display = 'none';
+                }
+                alert('Ошибка загрузки видео');
+            });
+
+            // Allow loading video on Enter key press
+            videoUrlInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    loadVideoButton.click();
+                }
+            });
         }
     };
 
@@ -32,7 +71,43 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isMobileDevice()) {
         switchToNativePlayer();
     } else {
+        // Добавляем обработчики для ПК версии
+        loadVideoButton.addEventListener('click', () => {
+            const videoPlayer = document.querySelector('.video-player');
+            const url = videoUrlInput.value.trim();
+            if (url) {
+                if (videoLoading) {
+                    videoLoading.style.display = 'flex';
+                }
+                videoPlayer.src = url;
+                videoPlayer.load();
+            }
+        });
+
+        // Обработчик окончания загрузки для ПК
         const videoPlayer = document.querySelector('.video-player');
+        videoPlayer.addEventListener('loadeddata', () => {
+            if (videoLoading) {
+                videoLoading.style.display = 'none';
+            }
+            videoPlayer.style.opacity = '1';
+        });
+
+        // Обработчик ошибки загрузки для ПК
+        videoPlayer.addEventListener('error', () => {
+            if (videoLoading) {
+                videoLoading.style.display = 'none';
+            }
+            alert('Ошибка загрузки видео');
+        });
+
+        // Enter key для ПК
+        videoUrlInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                loadVideoButton.click();
+            }
+        });
+
         const progressBarContainer = document.querySelector('.video-progress-bar-container');
         const progressBar = document.querySelector('.video-progress-bar');
         const progressLoaded = document.querySelector('.progress-loaded');
@@ -56,7 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const videoContainer = document.querySelector('.video-fluid');
         const controlsTop = videoContainer.querySelector('.controls-top');
         const controlsBottom = videoContainer.querySelector('.controls-bottom');
-        const videoLoading = document.querySelector('.video-loading');
         const previewImage = document.querySelector('.preview-image');
         const videoInfoBlock = document.querySelector('.video-info-block');
         const videoInfoTime = document.querySelector('.video-info-time');
@@ -381,30 +455,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Add video URL loading functionality
-        const videoUrlInput = document.getElementById('video-url');
-        const loadVideoButton = document.getElementById('load-video');
-
-        loadVideoButton.addEventListener('click', () => {
-            const url = videoUrlInput.value.trim();
-            if (url) {
-                // Show loading
-                videoLoading.style.display = 'flex';
-                
-                // Load video
-                videoPlayer.src = url;
-                videoPlayer.load();
-
-                // Reset player state
-                progressBar.value = 0;
-                progressBarContainer.style.setProperty('--progress', '0%');
-                currentTime.textContent = '00:00';
-                duration.textContent = '00:00';
-                playIcon.style.display = 'block';
-                pauseIcon.style.display = 'none';
-            }
-        });
-
         // Generate video preview
         videoPlayer.addEventListener('loadeddata', () => {
             // Hide loading
@@ -426,13 +476,6 @@ document.addEventListener('DOMContentLoaded', () => {
         videoPlayer.addEventListener('ended', () => {
             playIcon.style.display = 'block';
             pauseIcon.style.display = 'none';
-        });
-
-        // Allow loading video on Enter key press
-        videoUrlInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                loadVideoButton.click();
-            }
         });
 
         // Add CSS styles
