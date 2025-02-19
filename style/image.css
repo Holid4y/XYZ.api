@@ -1,0 +1,9 @@
+.img-fluid {
+    width: auto;
+    height: 100%;
+}
+
+.img-circle {
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+}

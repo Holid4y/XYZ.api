@@ -214,6 +214,11 @@ textarea.input-form {
     font-size: 14px;
 }
 
+.input-group-text.btn{
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
 .input-group-text:first-child {
     border-right: none;
     border-top-left-radius: 8px;

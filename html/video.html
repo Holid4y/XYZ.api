@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ.api</title>
+    
+    <link rel="stylesheet" href="../style/grid.css">
+    <link rel="stylesheet" href="../style/button.css">
+    <link rel="stylesheet" href="../style/card.css">
+    <link rel="stylesheet" href="../style/drivers.css">
+    <link rel="stylesheet" href="../style/input.css">
+    <link rel="stylesheet" href="../style/form.css">
+    <link rel="stylesheet" href="../style/spinner.css">
+    <link rel="stylesheet" href="../style/popover.css">
+    <link rel="stylesheet" href="../style/notification.css">
+    <link rel="stylesheet" href="../style/breadcrumb.css">
+    <link rel="stylesheet" href="../style/progress.css">
+    <link rel="stylesheet" href="../style/carousel.css">
+    <link rel="stylesheet" href="../style/badge.css">
+    <link rel="stylesheet" href="../style/video.css">
+    <link rel="stylesheet" href="../style/placeholder.css">
+    <link rel="stylesheet" href="../style/style.css">
+    
+    <style>
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background-color: var(--button-bg);
+            color: var(--button-color);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 9999;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--button-hover);
+        }
+
+        .theme-toggle-icon {
+            font-size: 1.5rem;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../prism/prism.css">
+    
+</head>
+<body>
+    <header class="container my-3">
+        <div class="bg-dark d-flex align-center justify-start py-3 px-4 rounded-12 w-100">
+            <div class="breadcrumb">
+                <a href="../index.html" class="active">Главная</a>
+                <span class="breadcrumb-separator">
+                    <svg width="9" height="16" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4491 7.68025C10.8018 8.03346 11 8.51227 11 9.01148C11 9.5107 10.8018 9.9895 10.4491 10.3427L3.34579 17.4485C2.9924 17.8017 2.51315 18.0001 2.01349 18C1.76608 17.9999 1.5211 17.9512 1.29255 17.8564C1.064 17.7617 0.856341 17.6229 0.681438 17.4479C0.506536 17.2729 0.367811 17.0652 0.273186 16.8366C0.17856 16.608 0.129887 16.363 0.129945 16.1156C0.130004 15.8682 0.178793 15.6232 0.273526 15.3946C0.368258 15.1661 0.507081 14.9584 0.682066 14.7835L6.45285 9.01148L0.68081 3.23944C0.500805 3.06575 0.357195 2.85795 0.258358 2.62816C0.159522 2.39838 0.107441 2.15121 0.10515 1.90108C0.102859 1.65094 0.150407 1.40286 0.245018 1.1713C0.339629 0.939743 0.479408 0.729345 0.656201 0.552385C0.832995 0.375425 1.04326 0.235447 1.27473 0.140617C1.5062 0.0457878 1.75424 -0.00199127 2.00437 6.29425e-05C2.2545 0.00211716 2.50172 0.0539665 2.7316 0.152586C2.96148 0.251205 3.16942 0.394619 3.34328 0.574459L10.4516 7.68025H10.4491Z" fill="#999"/>
+                    </svg>
+                </span>
+                <a href="#">Video</a>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="form-group input-group">
+            <input type="text" id="video-url" class="input-form" placeholder="Ссылка mp4">
+            <button type="button" id="load-video" class="btn input-group-text">Загрузить</button>
+        </div>
+
+        <div class="video-fluid mb-5 rounded-12">
+            <div class="video-loading" style="display: none;">
+                <div class="spinner"></div>
+                <span>Загрузка видео...</span>
+            </div>
+            <div class="video-preview" style="display: none;">
+                <img class="preview-image" src="" alt="Preview">
+                <div class="preview-play">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.409 9.35294C20.8893 9.60835 21.291 9.98963 21.5712 10.4559C21.8514 10.9222 21.9994 11.456 21.9994 11.9999C21.9994 12.5439 21.8514 13.0777 21.5712 13.544C21.291 14.0102 20.8893 14.3915 20.409 14.6469L7.597 21.6139C5.534 22.7369 3 21.2769 3 18.9679V5.03294C3 2.72294 5.534 1.26394 7.597 2.38494L20.409 9.35294Z" stroke="#FFFFFF" stroke-width="1.5"/>
+                    </svg>
+                </div>
+            </div>
+            <video src="" class="video-player rounded-12" playsinline></video>
+            <div class="controls controls-top">
+                <div class="custom-select bottom select-language">
+                    <div class="select-trigger">
+                        <span class="select-value">Дублированный</span>
+                        <svg class="select-arrow" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z"/>
+                        </svg>
+                    </div>
+                    <div class="select-options">
+                        <div class="select-option" data-value="1">Опция 1</div>
+                        <div class="select-option" data-value="2">Опция 2</div>
+                        <div class="select-option" data-value="3">Опция 3</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="controls controls-bottom">
+                <div class="video-buttons">
+                    <button class="video-btn play-btn">
+                        <svg id="play-btn" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.409 9.35294C20.8893 9.60835 21.291 9.98963 21.5712 10.4559C21.8514 10.9222 21.9994 11.456 21.9994 11.9999C21.9994 12.5439 21.8514 13.0777 21.5712 13.544C21.291 14.0102 20.8893 14.3915 20.409 14.6469L7.597 21.6139C5.534 22.7369 3 21.2769 3 18.9679V5.03294C3 2.72294 5.534 1.26394 7.597 2.38494L20.409 9.35294Z" stroke="#CCCCCC" stroke-width="1.5"/>
+                        </svg>
+                        <svg id="pause-btn" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                            <path d="M2 6C2 4.114 2 3.172 2.586 2.586C3.172 2 4.114 2 6 2C7.886 2 8.828 2 9.414 2.586C10 3.172 10 4.114 10 6V18C10 19.886 10 20.828 9.414 21.414C8.828 22 7.886 22 6 22C4.114 22 3.172 22 2.586 21.414C2 20.828 2 19.886 2 18V6ZM14 6C14 4.114 14 3.172 14.586 2.586C15.172 2 16.114 2 18 2C19.886 2 20.828 2 21.414 2.586C22 3.172 22 4.114 22 6V18C22 19.886 22 20.828 21.414 21.414C20.828 22 19.886 22 18 22C16.114 22 15.172 22 14.586 21.414C14 20.828 14 19.886 14 18V6Z" stroke="#CCCCCC" stroke-width="1.5"/>
+                        </svg>
+                    </button>
+
+                    <div class="video-progress">
+                        <div class="progress-loaded"></div>
+                        <div class="video-progress-bar-container">
+                            <input type="range" class="video-progress-bar" min="0" max="100" value="0">
+                        </div>
+                    </div>
+
+                    <span class="video-time-current">00:00</span>
+                    <span class="video-time-separator">/</span>
+                    <span class="video-time-duration">00:00</span>
+                    
+                    <div class="volume-container position-relative">
+                        <div class="volume-slider-container">
+                            <div class="volume-slider-wrapper">
+                                <input type="range" class="volume-slider" min="0" max="100" value="0" orient="vertical">
+                            </div>
+                        </div>
+                        <button class="video-btn volume-btn">
+                            
+                            <svg id="volume-max" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.535 10.971C1.608 9.76301 1.645 9.15801 1.959 8.57701C2.27713 8.01423 2.75825 7.561 3.339 7.27701C3.94 7.00001 4.627 7.00001 6 7.00001C6.512 7.00001 6.768 7.00001 7.016 6.95801C7.26129 6.91647 7.50046 6.84459 7.728 6.74401C7.958 6.64301 8.172 6.50201 8.599 6.22001L8.819 6.07601C11.36 4.39901 12.632 3.56001 13.7 3.92501C13.905 3.99501 14.103 4.09501 14.28 4.22001C15.202 4.86801 15.273 6.37701 15.413 9.39401C15.4587 10.262 15.4877 11.1309 15.5 12C15.5 12.532 15.465 13.488 15.413 14.605C15.273 17.623 15.203 19.131 14.28 19.78C14.1016 19.9053 13.9063 20.0047 13.7 20.075C12.633 20.439 11.361 19.601 8.818 17.924L8.6 17.78C8.173 17.498 7.96 17.357 7.729 17.255C7.50141 17.1548 7.26224 17.0832 7.017 17.042C6.768 17 6.512 17 6 17C4.626 17 3.94 17 3.34 16.723C2.75888 16.4392 2.27739 15.9859 1.959 15.423C1.645 14.841 1.609 14.237 1.535 13.028C1.51297 12.6858 1.50129 12.3429 1.5 12C1.5 11.677 1.513 11.329 1.535 10.971Z" stroke="#CCCCCC" stroke-width="1.5"/>
+                                <path d="M20 6C20 6 21.5 7.8 21.5 12C21.5 16.2 20 18 20 18M18 9C18 9 18.5 9.9 18.5 12C18.5 14.1 18 15 18 15" stroke="#CCCCCC" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <svg id="volume-mid" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none">
+                                <path d="M1.535 10.971C1.608 9.76301 1.645 9.15801 1.959 8.57701C2.27713 8.01423 2.75825 7.561 3.339 7.27701C3.94 7.00001 4.627 7.00001 6 7.00001C6.512 7.00001 6.768 7.00001 7.016 6.95801C7.26129 6.91647 7.50046 6.84459 7.728 6.74401C7.958 6.64301 8.172 6.50201 8.599 6.22001L8.819 6.07601C11.36 4.39901 12.632 3.56001 13.7 3.92501C13.905 3.99501 14.103 4.09501 14.28 4.22001C15.202 4.86801 15.273 6.37701 15.413 9.39401C15.4587 10.262 15.4877 11.1309 15.5 12C15.5 12.532 15.465 13.488 15.413 14.605C15.273 17.623 15.203 19.131 14.28 19.78C14.1016 19.9053 13.9063 20.0047 13.7 20.075C12.633 20.439 11.361 19.601 8.818 17.924L8.6 17.78C8.173 17.498 7.96 17.357 7.729 17.255C7.50141 17.1548 7.26224 17.0832 7.017 17.042C6.768 17 6.512 17 6 17C4.626 17 3.94 17 3.34 16.723C2.75888 16.4392 2.27739 15.9859 1.959 15.423C1.645 14.841 1.609 14.237 1.535 13.028C1.51297 12.6858 1.50129 12.3429 1.5 12C1.5 11.677 1.513 11.329 1.535 10.971Z" stroke="#CCCCCC" stroke-width="1.5"/>
+                                <path opacity="0.4" d="M20 6C20 6 21.5 7.8 21.5 12C21.5 16.2 20 18 20 18" stroke="#CCCCCC" stroke-width="1.5" stroke-linecap="round"/>
+                                <path opacity="0.7" d="M18 9C18 9 18.5 9.9 18.5 12C18.5 14.1 18 15 18 15" stroke="#CCCCCC" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <svg id="volume-min" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none">
+                                <path d="M1.535 10.971C1.608 9.76301 1.645 9.15801 1.959 8.57701C2.27713 8.01423 2.75825 7.561 3.339 7.27701C3.94 7.00001 4.627 7.00001 6 7.00001C6.512 7.00001 6.768 7.00001 7.016 6.95801C7.26129 6.91647 7.50046 6.84459 7.728 6.74401C7.958 6.64301 8.172 6.50201 8.599 6.22001L8.819 6.07601C11.36 4.39901 12.632 3.56001 13.7 3.92501C13.905 3.99501 14.103 4.09501 14.28 4.22001C15.202 4.86801 15.273 6.37701 15.413 9.39401C15.4587 10.262 15.4877 11.1309 15.5 12C15.5 12.532 15.465 13.488 15.413 14.605C15.273 17.623 15.203 19.131 14.28 19.78C14.1016 19.9053 13.9063 20.0047 13.7 20.075C12.633 20.439 11.361 19.601 8.818 17.924L8.6 17.78C8.173 17.498 7.96 17.357 7.729 17.255C7.50141 17.1548 7.26224 17.0832 7.017 17.042C6.768 17 6.512 17 6 17C4.626 17 3.94 17 3.34 16.723C2.75888 16.4392 2.27739 15.9859 1.959 15.423C1.645 14.841 1.609 14.237 1.535 13.028C1.51297 12.6858 1.50129 12.3429 1.5 12C1.5 11.677 1.513 11.329 1.535 10.971Z" stroke="#CCCCCC" stroke-width="1.5"/>
+                                <path d="M18 9C18 9 18.5 9.9 18.5 12C18.5 14.1 18 15 18 15" stroke="#CCCCCC" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <svg id="volume-mute" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none">
+                                <path d="M16.25 12.0001C16.25 11.8011 16.171 11.6104 16.0303 11.4697C15.8897 11.3291 15.6989 11.2501 15.5 11.2501C15.3011 11.2501 15.1103 11.3291 14.9697 11.4697C14.829 11.6104 14.75 11.8011 14.75 12.0001H16.25ZM9.911 17.7451C9.7446 17.641 9.54404 17.6063 9.35234 17.6484C9.16065 17.6905 8.9931 17.8061 8.88566 17.9703C8.77821 18.1346 8.73943 18.3344 8.77763 18.5269C8.81584 18.7194 8.92798 18.8893 9.09 19.0001L9.911 17.7451ZM9.012 6.84605L9.232 6.70205L8.405 5.45005L8.186 5.59405L9.012 6.84605ZM2.283 12.9831C2.263 12.6361 2.25 12.3031 2.25 12.0001H0.75C0.75 12.3411 0.764 12.7061 0.786 13.0741L2.283 12.9831ZM2.25 12.0001C2.25 11.6971 2.262 11.3641 2.283 11.0171L0.786 10.9261C0.763314 11.2836 0.751309 11.6418 0.75 12.0001H2.25ZM14.75 12.0001C14.75 12.5121 14.716 13.4501 14.664 14.5701L16.162 14.6401C16.2084 13.7607 16.2378 12.8805 16.25 12.0001H14.75ZM6 7.75005C6.488 7.75005 6.817 7.75305 7.141 7.69805L6.891 6.21805C6.72 6.24805 6.537 6.25005 6.001 6.25005L6 7.75005ZM8.186 5.59405C7.739 5.88905 7.584 5.98805 7.426 6.05805L8.032 7.43105C8.332 7.29805 8.605 7.11505 9.012 6.84605L8.186 5.59405ZM7.141 7.69805C7.44743 7.64611 7.74733 7.55578 8.032 7.43105L7.426 6.05805C7.25533 6.13405 7.07633 6.18738 6.891 6.21805L7.141 7.69805ZM6.001 17.7501C6.537 17.7501 6.72 17.7521 6.891 17.7811L7.141 16.3021C6.817 16.2471 6.488 16.2501 6.001 16.2501V17.7501ZM6.001 16.2501C4.556 16.2501 4.069 16.2331 3.655 16.0421L3.025 17.4031C3.809 17.7661 4.696 17.7501 6.001 17.7501V16.2501ZM0.786 13.0741C0.856 14.2271 0.889 15.0211 1.297 15.7781L2.617 15.0671C2.4 14.6621 2.36 14.2471 2.283 12.9831L0.786 13.0741ZM3.655 16.0421C3.22152 15.8257 2.85924 15.4866 2.617 15.0671L1.297 15.7781C1.6929 16.4833 2.29623 17.0503 3.024 17.4031L3.655 16.0421ZM14.664 14.5701C14.592 16.1011 14.54 17.1731 14.401 17.9481C14.261 18.7191 14.064 19.0141 13.848 19.1661L14.71 20.3931C15.416 19.8971 15.715 19.113 15.877 18.213C16.038 17.318 16.092 16.1271 16.161 14.6401L14.664 14.5701ZM13.941 20.7851C14.2149 20.6921 14.4739 20.5601 14.71 20.3931L13.848 19.1661C13.7277 19.2499 13.5955 19.3169 13.457 19.3651L13.941 20.7851ZM9.232 6.70205C10.521 5.85205 11.426 5.25705 12.14 4.91005C12.852 4.56405 13.209 4.55005 13.458 4.63505L13.942 3.21505C13.124 2.93505 12.311 3.15905 11.485 3.56005C10.661 3.96005 9.659 4.62305 8.405 5.45005L9.232 6.70205ZM13.458 4.63505C13.595 4.68205 13.73 4.75005 13.848 4.83305L14.711 3.60605C14.4748 3.4397 14.2158 3.30834 13.942 3.21605L13.458 4.63505ZM6.001 6.25005C4.697 6.25005 3.81 6.23505 3.025 6.59705L3.655 7.95805C4.069 7.76605 4.556 7.75005 6 7.75005L6.001 6.25005ZM2.283 11.0171C2.36 9.75305 2.401 9.33705 2.619 8.93305L1.299 8.22105C0.89 8.97905 0.856 9.77205 0.786 10.9261L2.283 11.0171ZM3.025 6.59705C2.29715 6.94907 1.69449 7.51544 1.298 8.22005L2.618 8.93205C2.86051 8.51234 3.22115 8.17325 3.655 7.95705L3.025 6.59705ZM9.089 19.0001C10.128 19.6801 10.988 20.2241 11.72 20.5491C12.463 20.8771 13.2 21.0381 13.942 20.7851L13.458 19.3651C13.232 19.4421 12.918 19.4391 12.328 19.1771C11.726 18.9111 10.97 18.4391 9.911 17.7451L9.089 19.0001ZM16.123 8.54005C16.063 7.31305 15.996 6.30705 15.827 5.53005C15.655 4.74105 15.35 4.05605 14.711 3.60605L13.848 4.83305C14.044 4.97105 14.225 5.22505 14.361 5.84905C14.5 6.48405 14.563 7.36305 14.625 8.61405L16.123 8.54005Z" fill="#CCCCCC"/>
+                                <path d="M20 18C20 18 21.5 16.2 21.5 12C21.5 9.567 20.997 7.939 20.573 7M18 15C18 15 18.5 14.1 18.5 12C18.5 11.138 18.416 10.478 18.317 10M22 2L2 22" stroke="#CCCCCC" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <button class="video-btn fullscreen-btn">
+                        <svg id="fullscreen-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9.997C6.014 8.291 6.11 7.35 6.73 6.73C7.35 6.11 8.29 6.014 9.997 6M6 14C6.014 15.707 6.11 16.648 6.73 17.268C7.35 17.888 8.29 17.984 9.997 17.998M17.998 9.997C17.983 8.291 17.888 7.35 17.268 6.73C16.648 6.11 15.707 6.014 14 6M17.998 14C17.983 15.707 17.888 16.648 17.268 17.268C16.648 17.888 15.707 17.984 14 17.998" stroke="#CCCCCC" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M2 12C2 7.286 2 4.929 3.464 3.464C4.93 2 7.286 2 12 2C16.714 2 19.071 2 20.535 3.464C22 4.93 22 7.286 22 12C22 16.714 22 19.071 20.535 20.535C19.072 22 16.714 22 12 22C7.286 22 4.929 22 3.464 20.535C2 19.072 2 16.714 2 12Z" stroke="#CCCCCC" stroke-width="1.5"/>
+                        </svg>
+                        <svg id="fullscreen-icon-exit" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                            <path d="M9.998 6C9.983 7.707 9.888 8.648 9.268 9.268C8.648 9.888 7.707 9.984 6 9.998M9.998 17.997C9.983 16.291 9.888 15.35 9.268 14.73C8.648 14.11 7.707 14.014 6 14M14 6C14.014 7.707 14.11 8.648 14.73 9.268C15.35 9.888 16.29 9.984 17.997 9.998M14 17.997C14.014 16.291 14.11 15.35 14.73 14.73C15.35 14.11 16.29 14.014 17.997 14" stroke="#CCCCCC" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M2 12C2 7.286 2 4.929 3.464 3.464C4.93 2 7.286 2 12 2C16.714 2 19.071 2 20.535 3.464C22 4.93 22 7.286 22 12C22 16.714 22 19.071 20.535 20.535C19.072 22 16.714 22 12 22C7.286 22 4.929 22 3.464 20.535C2 19.072 2 16.714 2 12Z" stroke="#CCCCCC" stroke-width="1.5"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button id="theme-toggle" class="theme-toggle">
+        <span class="theme-toggle-icon">🌓</span>
+    </button>
+
+    <script src="../prism/prism.js"></script>
+    <script src="../js/custom-select.js"></script>
+    <script src="../js/video.js"></script>
+    <script src="../js/placeholder.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/carousel.js"></script>
+    <script src="../js/progress.js"></script>
+    <script src="../js/breadcrumb.js"></script>
+    <script src="../js/notification.js"></script>
+    <script src="../js/frame.js"></script>
+    <script src="../js/themes.js"></script>
+    <script src="../js/apiv0.js"></script>
+    <script src="../js/popover.js"></script>
+
+    
+</body>
+</html>
