@@ -12,6 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
         );
     };
 
+    // Функция определения ПК
+    const isDesktop = () => {
+        return (
+            !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) && 
+            window.matchMedia('(min-width: 1024px)').matches && 
+            !('ontouchstart' in window)
+        );
+    };
+
     // Функция для замены кастомного плеера на нативный
     const switchToNativePlayer = () => {
         const videoContainer = document.querySelector('.video-fluid');
@@ -68,10 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Проверяем устройство и применяем соответствующий плеер
-    if (isMobileDevice()) {
-        switchToNativePlayer();
-    } else {
-        // Добавляем обработчики для ПК версии
+    if (isDesktop()) {
+        // Код кастомного плеера для ПК
         loadVideoButton.addEventListener('click', () => {
             const videoPlayer = document.querySelector('.video-player');
             const url = videoUrlInput.value.trim();
@@ -576,5 +583,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 videoInfoBlock.classList.remove('hidden');
             }, 300);
         });
+    } else {
+        // Нативный плеер для всех остальных устройств
+        switchToNativePlayer();
     }
 });
