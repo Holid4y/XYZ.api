@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const controlsTop = videoContainer.querySelector('.controls-top');
     const controlsBottom = videoContainer.querySelector('.controls-bottom');
     const videoLoading = document.querySelector('.video-loading');
-    const videoPreview = document.querySelector('.video-preview');
     const previewImage = document.querySelector('.preview-image');
     const videoInfoBlock = document.querySelector('.video-info-block');
     const videoInfoTime = document.querySelector('.video-info-time');
@@ -331,7 +330,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (url) {
             // Show loading
             videoLoading.style.display = 'flex';
-            videoPreview.style.display = 'none';
             
             // Load video
             videoPlayer.src = url;
@@ -361,18 +359,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Set preview image
         previewImage.src = canvas.toDataURL();
-        videoPreview.style.display = 'flex';
     });
 
-    // Handle preview click
-    videoPreview.addEventListener('click', () => {
-        videoPreview.style.display = 'none';
-        togglePlay();
-    });
 
     // Show preview when video ends
     videoPlayer.addEventListener('ended', () => {
-        videoPreview.style.display = 'flex';
         playIcon.style.display = 'block';
         pauseIcon.style.display = 'none';
     });
