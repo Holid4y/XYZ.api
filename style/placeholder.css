@@ -1,6 +1,6 @@
 /* Базовый placeholder */
 .placeholder {
-    background-color: var(--placeholder-bg, #202238);
+    background-color: var(--placeholder-bg, #525b63);
     border-radius: 10px;
     position: relative;
     overflow: hidden;
@@ -24,7 +24,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #202238 25%, #4c5075 50%, #202238 75%);
+    background: linear-gradient(90deg, #525b63 25%, #657481 50%, #525b63 75%);
     background-size: 200% 100%;
     animation: wave 1.5s infinite linear;
     border-radius: 8px;
@@ -58,7 +58,7 @@
 .placeholder-wave {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(90deg, #202238 25%, #4c5075 50%, #202238 75%);
+    background: linear-gradient(90deg, #525b63 25%, #657481 50%, #525b63 75%);
     background-size: 200% 100%;
     animation: wave 1.5s infinite linear;
 }

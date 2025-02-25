@@ -1,5 +1,5 @@
 .card {
-    background-color: var(--card-bg);
+    background-color: var(--btn-dark-bg);
     border: 1px solid var(--card-border);
     border-radius: 8px;
     box-shadow: 0 2px 4px var(--card-shadow);
@@ -12,7 +12,7 @@
 }
 
 .bg-main {
-    background-color: var(--card-bg);
+    background-color: var(--btn-dark-bg);
     border: 1px solid var(--card-border);
     border-radius: 8px;
     box-shadow: 0 2px 4px var(--card-shadow);

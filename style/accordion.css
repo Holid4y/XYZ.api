@@ -3,20 +3,21 @@
     border-radius: 0;
     background: none;
     padding: 0;
+    width: 100%;
 }
 
 .accordion-btn {
     width: 100%;
-    padding: 15px 20px;
+    padding: 0 20px;
+    height: 50px;
     color: white;
     text-align: left;
     font-size: 16px;
     position: relative;
-    transition: background-color 0.3s ease;
     cursor: pointer;
     border-radius: 0; /* Без скруглений по умолчанию */
-    background: none;
-    border: none;
+    background: #252525;
+    border: 1px solid transparent;
 }
 
 .accordion-btn:hover {
@@ -39,7 +40,7 @@
 }
 
 .accordion-default .accordion-btn:hover {
-    background: rgba(0, 0, 0, 0.05);
+    background: #222;
 }
 
 /* 🎨 Border */
@@ -128,5 +129,5 @@
 }
 
 .accordion-body {
-    padding: 20px;
+    padding: 10px 20px;
 }

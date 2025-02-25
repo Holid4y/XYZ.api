@@ -184,7 +184,7 @@ body {
 
 #frame {
     position: relative;
-    min-width: 360px;
+    min-width: 340px;
     max-width: 100%;
     width: 100%;
     border: 1px solid #c7c1c115;
@@ -229,6 +229,7 @@ body {
     align-items: center;
     padding: 10px;
     min-height: 100px;
+    height: 100%;
     border-bottom: 1px solid #c7c1c115;
     gap: 20px;
 }
@@ -281,65 +282,48 @@ body {
     opacity: 1; /* Показываем при добавлении класса */
 }
 
-.w-100{
-    width: 100%;
-}
+.w-100{ width: 100%; }
+.w-50{ width: 50%; }
+.w-25{ width: 25%; }
 
-.h-100{
-    height: 100%;
-}
+.h-100{ height: 100%; }
+.h-50{ height: 50%; }
+.h-25{ height: 25%; }
 
-.w-50{
-    width: 50%;
-}
+.bg-primary { background-color: var(--btn-primary-bg); }
+.bg-secondary { background-color: var(--btn-secondary-bg); }
+.bg-success { background-color: var(--btn-success-bg); }
+.bg-danger { background-color: var(--btn-danger-bg); }
+.bg-warning { background-color: var(--btn-warning-bg); }
+.bg-info { background-color: var(--btn-info-bg); }
+.bg-light { background-color: var(--btn-light-bg); }
+.bg-dark { background-color: var(--btn-dark-bg); }
 
-.h-50{
-    height: 50%;
-}
+.bg-outline-primary { border-color: var(--btn-primary-bg); transition: all .3s ease; }
+.bg-outline-secondary { border-color: var(--btn-secondary-bg); transition: all .3s ease; }
+.bg-outline-success { border-color: var(--btn-success-bg); transition: all .3s ease; }
+.bg-outline-danger { border-color: var(--btn-danger-bg); transition: all .3s ease; }
+.bg-outline-warning { border-color: var(--btn-warning-bg); transition: all .3s ease; }
+.bg-outline-info { border-color: var(--btn-info-bg); transition: all .3s ease; }
+.bg-outline-light { border-color: var(--btn-light-bg); transition: all .3s ease; }
+.bg-outline-dark { border-color: var(--btn-dark-bg); transition: all .3s ease; }
 
-.w-25{
-    width: 25%;
-}
+.bg-outline-primary:hover { background-color: var(--btn-primary-bg); }
+.bg-outline-secondary:hover { background-color: var(--btn-secondary-bg); }
+.bg-outline-success:hover { background-color: var(--btn-success-bg); }
+.bg-outline-danger:hover { background-color: var(--btn-danger-bg); }
+.bg-outline-warning:hover { background-color: var(--btn-warning-bg); }
+.bg-outline-info:hover { background-color: var(--btn-info-bg); }
+.bg-outline-light:hover { background-color: var(--btn-light-bg); }
+.bg-outline-dark:hover { background-color: var(--btn-dark-bg); }
 
-.h-25{
-    height: 25%;
-}
+.opacity-075{ opacity: .75; }
+.opacity-05{ opacity: .5; }
+.opacity-025{ opacity: .25; }
 
-.bg-primary {
-    background-color: var(--btn-primary-bg);
-}
-
-.bg-secondary {
-    background-color: var(--btn-secondary-bg);
-}
-
-.bg-success {
-    background-color: var(--btn-success-bg);
-}
-
-.bg-danger {
-    background-color: var(--btn-danger-bg);
-}
-
-.bg-warning {
-    background-color: var(--btn-warning-bg);
-}
-
-.bg-warning h5{
-    color: var(--btn-warning-color);
-}
-
-.bg-info {
-    background-color: var(--btn-info-bg);
-}
-
-.bg-light {
-    background-color: var(--btn-light-bg);
-}
-
-.bg-dark {
-    background-color: var(--btn-dark-bg);
-}
+.opacity-075:hover{ opacity: 1; }
+.opacity-05:hover{ opacity: .75; }
+.opacity-025:hover{ opacity: .50; }
 
 /* Margin */
 .m-0 { margin: 0 !important; }

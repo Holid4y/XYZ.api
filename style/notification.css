@@ -19,7 +19,7 @@
 
 /* Уведомление */
 .notification {
-    background: #222;
+    background-color: var(--btn-dark-bg);
     color: white;
     border-radius: 8px;
     max-width: 400px;
@@ -83,7 +83,7 @@
 
 /* Уведомление с полным контентом */
 .notification-full {
-    background: #252530;
+    background-color: var(--btn-dark-bg);
     color: white;
 }
 
@@ -104,7 +104,7 @@
 
 /* Кнопка закрытия в шапке */
 .notification-close {
-    background-color: #252530;
+    background-color: var(--btn-dark-bg);
     padding: 0px 8px;
     border-radius: 5px;
     border: none;
@@ -150,13 +150,13 @@
 
 /* Уведомление с шапкой и телом */
 .notification-header-body {
-    background: #252530;
+    background-color: var(--btn-dark-bg);
     color: #b4b4b4;
 }
 
 /* Простое уведомление с шапкой */
 .notification-simple {
-    background: #252530;
+    background-color: var(--btn-dark-bg);
     color: #333;
     padding: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);

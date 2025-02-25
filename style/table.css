@@ -28,19 +28,19 @@
   }
 
   .table-striped tr:nth-child(even) {
-    background-color: #252530;
+    background-color: var(--btn-dark-bg);
   }
 
   .table-striped-columns td:nth-child(even) {
-    background-color: #252530;
+    background-color: var(--btn-dark-bg);
   }
 
   .table-hover tr:hover {
-    background-color: #252560;
+    background-color: var(--btn-dark-bg);
   }
 
   .table-hover-item td:hover {
-    background-color: #252560;
+    background-color: var(--btn-dark-bg);
   }
 
   .table-bordered th, .table-bordered td {

@@ -3,7 +3,7 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background: var(--background-color);
+    background: transparent;
     border: 1px solid var(--border-color);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -70,7 +70,7 @@
 .label-inside-line textarea:focus + label, .label-inside-line textarea:not(:placeholder-shown) + label{
     top: 0;
     border: 1px solid var(--card-border);
-    background-color: var(--card-bg);
+    background-color: var(--btn-dark-bg);
 }
 
 
@@ -82,7 +82,7 @@
     font-size: 14px;
     line-height: 1.5;
     color: var(--text-color);
-    background-color: var(--card-bg);
+    background-color: var(--btn-dark-bg);
     border: 1px solid var(--card-border);
     border-radius: 8px;
     outline: none;
@@ -152,7 +152,7 @@ textarea.input-form {
     justify-content: space-between;
     align-items: center;
     padding: 8px;
-    background-color: var(--card-bg);
+    background-color: var(--btn-dark-bg);
     border: 1px solid var(--card-border);
     border-top: none;
     border-bottom-left-radius: 8px;
@@ -168,7 +168,7 @@ textarea.input-form {
     padding: 8px 16px;
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    background-color: var(--card-bg);
+    background-color: #1a222b;
     color: var(--text-color);
     font-size: 14px;
     cursor: pointer;
@@ -187,7 +187,7 @@ textarea.input-form {
 
 .select-form{
     max-width: 15%;
-    background-color: #282830;
+    background-color: var(--btn-dark-bg);
 }
 
 .input-group .input-form {
@@ -208,7 +208,7 @@ textarea.input-form {
     display: flex;
     align-items: center;
     padding: 0 16px;
-    background-color: #282830;
+    background-color: #1a222b;
     border: 1px solid var(--card-border);
     color: var(--text-muted);
     font-size: 14px;
@@ -369,7 +369,7 @@ select.input-form[multiple] {
     align-items: center;
     justify-content: space-between;
     padding: 12px 16px;
-    background: var(--card-bg);
+    background: var(--btn-dark-bg);
     border: 1px solid var(--card-border);
     border-radius: 8px;
     cursor: pointer;
@@ -398,7 +398,7 @@ select.input-form[multiple] {
 
 .select-options {
     position: absolute;
-    background: var(--card-bg);
+    background: var(--btn-dark-bg);
     border: 1px solid var(--card-border);
     border-radius: 8px;
     max-width: 100%;
@@ -451,7 +451,7 @@ select.input-form[multiple] {
 }
 
 .select-options::-webkit-scrollbar-track {
-    background: var(--card-bg);
+    background: var(--btn-dark-bg);
     border-radius: 4px;
 }
 

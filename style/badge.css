@@ -9,7 +9,7 @@
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: 0.25rem;
-    background-color: var(--card-bg);
+    background-color: var(--btn-dark-bg);
     color: var(--text-color);
     min-width: 22px;
     min-height: 22px;
