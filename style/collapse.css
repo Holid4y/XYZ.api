@@ -1,0 +1,17 @@
+.container {
+    container-type: inline-size; /* Указываем, что контейнер будет отслеживать свою ширину */
+  }
+  
+  @container (min-width: 600px) {
+    .content {
+      color: red;
+      font-size: 20px;
+    }
+  }
+  
+  @container (min-width: 900px) {
+    .content {
+      color: blue;
+      font-size: 10px;
+    }
+  }
